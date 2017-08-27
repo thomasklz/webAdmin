@@ -49,5 +49,11 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "repositories": {
+        "repo-name": {
+            "type": "git",
+            "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git"
+        }
     }
 }
