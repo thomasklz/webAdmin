@@ -11,13 +11,14 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form">
+              <form role="form" method="post" action="{{ route('categoria.store') }}">
+               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                  <!-- text input -->
                 <div class="form-group">
                   <label>Categoría</label>
-                  <input type="text" class="form-control" placeholder="Ingresar la categoria">
+                  <input type="text" name="categoria" class="form-control" placeholder="Ingresar la categoria">
                 </div>
-                <button type="button" class="btn btn-block btn-success">Registrar</button>
+                <button type="submit" class="btn btn-block btn-success">Registrar</button>
               </form>
             </div>
           </div>
@@ -30,50 +31,24 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
+                  <th class="text-center">#Categoria</th>
+                  <th>Categoria</th>
+                  <th class="text-center">Estado</th> 
                   <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($categorias as $categoria)
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
+                  <td class="text-center">{{ $categoria->id }}</td>
+                  <td>{{ $categoria->categoria }}</td>
+                  <td class="text-center">{{ $categoria->estado }} </td>
                   <td class="text-center">
                     <a href="#"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
                     <a href="#"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
                   </td>
                 </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td class="text-center">
-                    <a href="#"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
-                    <a href="#"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.5
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5.5</td>
-                  <td class="text-center">
-                    <a href="#"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
-                    <a href="#"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
-                  </td>
-                </tr>
+               @endforeach
                 </tbody>
               </table>
             </div>

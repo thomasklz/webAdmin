@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Categorias as Categoria;
 
 class NoticiaController extends Controller
 {
@@ -14,12 +15,10 @@ class NoticiaController extends Controller
     {
         return view('adminlte::noticia.registrar');
     }
-    /**
-     *
-     * @return Response
-     */
-    public function registrarCategoria()
+    
+    
+    public function registrarFotos()
     {
-        return view('adminlte::noticia.categoria');
+        return view('adminlte::noticia.fotos');
     }
 }

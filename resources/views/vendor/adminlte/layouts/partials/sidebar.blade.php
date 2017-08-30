@@ -35,9 +35,9 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticias</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('noticia/nueva/categoria') }}"><i class='fa fa-navicon'></i>Categoría</a></li>
-                    <li><a href="{{ url('noticia/registar') }}"><i class='fa fa-plus-circle'></i>Nueva noticia</a></li>
-                    <li><a href="#"><i class='fa fa-plus-circle'></i>Agregar fotos</a></li>
+                    <li><a href="{{ route('categoria.index') }}"><i class='fa fa-navicon'></i>Categoría</a></li>
+                    <li><a href="{{ url('noticia/registar') }}"><i class='fa fa-plus-circle'></i>Noticia</a></li>
+                    <li><a href="{{ url('noticia/fotos') }}"><i class='fa fa-plus-circle'></i>Fotos</a></li>
                 </ul>
             </li>
             <!-- Optionally, you can add icons to the links -->

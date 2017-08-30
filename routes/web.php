@@ -15,7 +15,10 @@ Route::get('/', function () {
     return redirect('/login');
 });
 Route::get('noticia/registar', 'NoticiaController@registrarNoticia');
-Route::get('noticia/nueva/categoria', 'NoticiaController@registrarCategoria');
+Route::get('noticia/nueva/categoria', 'NoticiaController@indexCategoria');
+Route::resource('categoria', 'CategoriaController');
+
+Route::get('noticia/fotos', 'NoticiaController@registrarFotos');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
