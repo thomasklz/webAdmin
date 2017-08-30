@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return redirect('/login');
 });
+Route::get('noticia/registar', 'NoticiaController@registrarNoticia');
+Route::get('noticia/nueva/categoria', 'NoticiaController@registrarCategoria');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

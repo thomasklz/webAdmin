@@ -7,10 +7,6 @@
 
 @section('main-content')
 	<div class="container-fluid spark-screen">
-		<div class="row">
-			<div class="col-md-12">
-			<h1>Págian principal</h1>
-			</div>
-		</div>
+		<h1>Principal</h1>
 	</div>
 @endsection

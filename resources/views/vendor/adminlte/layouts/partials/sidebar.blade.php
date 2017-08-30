@@ -29,9 +29,17 @@
         </form>
         <!-- /.search form -->
 
-        <!-- Sidebar Menu -->
+        <!-- Sidebar Menu --> 
         <ul class="sidebar-menu">
             <li class="header">MENÚ</li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticias</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('noticia/nueva/categoria') }}"><i class='fa fa-navicon'></i>Categoría</a></li>
+                    <li><a href="{{ url('noticia/registar') }}"><i class='fa fa-plus-circle'></i>Nueva noticia</a></li>
+                    <li><a href="#"><i class='fa fa-plus-circle'></i>Agregar fotos</a></li>
+                </ul>
+            </li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
