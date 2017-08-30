@@ -20,7 +20,6 @@
                 <button type="button" class="btn btn-block btn-success">Registrar</button>
               </form>
             </div>
-            <!-- /.box-body -->
           </div>
           <div class="box">
             <div class="box-header">
