@@ -56,6 +56,8 @@ desired effect
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 @show
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+@include('alertify::alertify')
 
 </body>
 </html>

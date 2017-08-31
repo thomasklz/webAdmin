@@ -1,3 +1,4 @@
+
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -44,8 +45,8 @@
                   <td>{{ $categoria->categoria }}</td>
                   <td class="text-center">{{ $categoria->estado }} </td>
                   <td class="text-center">
-                    <a href="#"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
-                    <a href="#"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
+                    <a href="{{ route('categoria.show',[$categoria->id]) }}"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
+                    <a href="{{ route('categoria.show',[$categoria->id]) }}"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
                   </td>
                 </tr>
                @endforeach

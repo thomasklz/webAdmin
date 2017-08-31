@@ -9,7 +9,8 @@
         "acacha/admin-lte-template-laravel": "4.*",
         "caouecs/laravel-lang": "~3.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "odannyc/laravel-alertify": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
