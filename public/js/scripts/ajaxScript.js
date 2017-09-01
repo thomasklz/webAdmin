@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	alertify.logPosition("bottom right");
 	$('[data-route]').click(function(e){
         e.preventDefault();;
         var urls=($(this).data('route'));
@@ -12,13 +12,14 @@ $(document).ready(function(){
 	    });
 	});
 
-
+	//Delete
 	$('.bnt-delete').click(function(e){
 		e.preventDefault();
 		var row = $(this).parents('tr');
 		var form = $(this).parents('form');
 		var url = form.attr('action');
-		alertify.confirm("Está seguro que desea eliminar",
+		debugger
+		alertify.confirm("Está seguro que desea eliminar?",
 			function(){
 				$.post(url,form.serialize(), function(result){
 					row.fadeOut();
@@ -28,5 +29,22 @@ $(document).ready(function(){
 				});
 		    }
 		);
+	});
+	//Update
+	$('[data-update]').click(function(e){
+		e.preventDefault();
+		var txtCategoria = $('input[name=VMCategoria]').val();
+		var url=($(this).data('update'));
+		debugger
+	
+			$.post(url,txtCategoria, function(result){
+					alertify.success(result.mensaje);
+					debugger
+			}).fail(function(error){
+					alertify.error('error message');
+					debugger
+				});
+
+		
 	});
 });  

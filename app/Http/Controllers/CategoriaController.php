@@ -35,7 +35,7 @@ class CategoriaController extends Controller
 	        $categoria->categoria = $request->categoria;
 	        $categoria->estado = 1;
 	        $categoria->save();
-	        alertify()->success('Categoria registrada correctamente')->delay(3000)->position('bottom right');
+	        alertify()->success('Categoria registrada correctamente','ok')->delay(3000)->position('bottom right');
 	        return redirect('categoria');
     	}else{
     		 alertify()->error('No se permiten valores nulos')->delay(3000)->position('bottom right');
@@ -63,6 +63,15 @@ class CategoriaController extends Controller
                      ->update(['estado' => 0]);
 			return response()->json(['mensaje'=> 'Cotegoría eliminada']);
     	}
+    }
+    public function update(Request $request, $id)
+    {
+        if ($request->ajax()){
+            $categorias = DB::table('Categorias')
+                     ->where('id', $id)
+                     ->update(['categoria' => $request->txtCategoria]);
+            return response()->json(['mensaje'=> 'Cotegoría actualizada']);
+        }
     }
 }
 
