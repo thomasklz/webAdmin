@@ -44,13 +44,14 @@ class CategoriaController extends Controller
         
     }
  
-    public function show($id)
+    public function show(Request $request, $id)
     {
-    	$result = DB::table('Categorias')
-    				 ->where('id',$id)
-                     ->first();
-
-        return response()->json($result);
+    	if ($request->ajax()){
+	    	$result = DB::table('Categorias')
+	    				 ->where('id',$id)
+	                     ->first();
+	        return response()->json($result);
+        }
         //return view('adminlte::noticia.categoria', compact('result'));
 
     }

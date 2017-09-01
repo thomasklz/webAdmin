@@ -43,15 +43,17 @@
                   <td class="text-center">{{ $categoria->id }}</td>
                   <td>{{ $categoria->categoria }}</td>
                   <td class="text-center">
-                  <!-- Trigger the modal with a button -->
-                    <button data-id="{{$categoria->id}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></button>
-                {!! Form::open(['route' => ['categoria.destroy', $categoria->id], 'method'=>'DELETE']) !!}
-                      <a href="#" class="bnt-delete"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
-                {!! Form::close() !!}
-
-                 
+                    <div class="row">
+                      <div class="col-md-6 text-right ">
+                      <a href="#" data-route="{{route('categoria.show', $categoria->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
+                      </div>
+                      <div class="col-md-6 text-left">
+                      {!! Form::open(['route' => ['categoria.destroy', $categoria->id], 'method'=>'DELETE']) !!}
+                        <a href="#" class="bnt-delete"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
+                      {!! Form::close() !!}
+                      </div>
+                    </div>
                   </td>
-
                 </tr>
                @endforeach
                 </tbody>
