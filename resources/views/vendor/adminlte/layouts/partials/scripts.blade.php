@@ -4,7 +4,8 @@
 <!-- Laravel App -->
 <script src="{{ url ('/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/adminlte/jquery.dataTables.js') }}"></script>
-<script src=" {{  asset ('js/adminlte/dataTables.bootstrap.js') }}"></script>
+<script src=" {{ asset('js/adminlte/dataTables.bootstrap.js') }}"></script>
+<script src=" {{ asset('js/scripts/ajaxScript.js') }}"></script>
 
  <!-- page script -->
         <script type="text/javascript">

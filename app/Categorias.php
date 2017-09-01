@@ -9,5 +9,5 @@ class Categorias extends Model
   public $timestamps = false;
   protected $table = 'categorias';
   protected $fillable = ['categoria', 'estado'];
-  protected $guarded = ['id'];
+
 }

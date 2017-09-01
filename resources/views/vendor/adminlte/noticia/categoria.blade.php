@@ -34,7 +34,6 @@
                 <tr>
                   <th class="text-center">#Categoria</th>
                   <th>Categoria</th>
-                  <th class="text-center">Estado</th> 
                   <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
@@ -43,11 +42,16 @@
                 <tr>
                   <td class="text-center">{{ $categoria->id }}</td>
                   <td>{{ $categoria->categoria }}</td>
-                  <td class="text-center">{{ $categoria->estado }} </td>
                   <td class="text-center">
-                    <a href="{{ route('categoria.show',[$categoria->id]) }}"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
-                    <a href="{{ route('categoria.show',[$categoria->id]) }}"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
+                  <!-- Trigger the modal with a button -->
+                    <button data-id="{{$categoria->id}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></button>
+                {!! Form::open(['route' => ['categoria.destroy', $categoria->id], 'method'=>'DELETE']) !!}
+                      <a href="#" class="bnt-delete"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
+                {!! Form::close() !!}
+
+                 
                   </td>
+
                 </tr>
                @endforeach
                 </tbody>
@@ -57,6 +61,7 @@
           </div>
           <!-- /.box -->
     </div>
+    @include('adminlte::modal.modalCategoria')
 @endsection
 
 <!-- Left side column. contains the logo and sidebar -->

@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Categorias;
+use Response;
 
 class CategoriaController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
     	$categorias = DB::table('Categorias')
@@ -20,7 +31,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $categoria = new Categorias;
-        if (!empty($request->categoriaar)){
+        if (!empty($request->categoria)){
 	        $categoria->categoria = $request->categoria;
 	        $categoria->estado = 1;
 	        $categoria->save();
@@ -32,14 +43,25 @@ class CategoriaController extends Controller
     	}
         
     }
-    public function destroy()
+ 
+    public function show($id)
     {
-    	$categorias = DB::table('Categorias')
-    				 ->where('estado','=',1)
-                     ->orderBy('id','desc')
-                     ->get();
-        return view('adminlte::noticia.categoria', compact('categorias'));
+    	$result = DB::table('Categorias')
+    				 ->where('id',$id)
+                     ->first();
 
+        return response()->json($result);
+        //return view('adminlte::noticia.categoria', compact('result'));
+
+    }
+    public function destroy(Request $request, $id)
+    {
+    	if ($request->ajax()){
+			$categorias = DB::table('Categorias')
+    				 ->where('id', $id)
+                     ->update(['estado' => 0]);
+			return response()->json(['mensaje'=> 'Cotegoría eliminada']);
+    	}
     }
 }
 
