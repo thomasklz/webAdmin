@@ -8,7 +8,8 @@
     <link href="{{ asset('/css/adminlte/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/adminlte/mycss.css') }}" rel="stylesheet" type="text/css" />
-
+    
+    @yield('css-top')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
