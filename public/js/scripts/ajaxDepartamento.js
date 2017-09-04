@@ -3,10 +3,10 @@ $(document).ready(function(){
 	//show
 	$('[data-route]').click(function(e){
         e.preventDefault();;
-        var catego = $(this).parents("tr").find("td").eq(1).html();
+        var depa = $(this).parents("tr").find("td").eq(1).html();
         var id = $(this).parents("tr").find("td").eq(0).html();
-        $('input[name=VMCategoria]').val(catego);
-	    $('input[name=idCategoria]').val(id);
+        $('input[name=VMDepartamento]').val(depa);
+	    $('input[name=VMidDepartamento]').val(id);
 	});
 	//Delete
 	$('.bnt-delete').click(function(e){
@@ -25,15 +25,16 @@ $(document).ready(function(){
 		    }
 		);
 	});
-	//Update categoria
+	//Update departamento
 	$('[data-update]').click(function(e){
 		e.preventDefault();
-		var txtCategoria = $('input[name=VMCategoria]').val();
-		var id = $('input[name=idCategoria]').val();
-		var url = 'categoria/'+id ;
+		var txtDepartamento = $('input[name=VMDepartamento]').val();
+		var id = $('input[name=VMidDepartamento]').val();
+		var url = 'unidad-academica/'+id ;
 		var token= $('input[name=_token]').val(); 
+		debugger
 	    $.ajax({
-            data: {categoria:txtCategoria},
+            data: {departamento:txtDepartamento},
             type: "PUT",
             dataType: "json",
             url: url,
@@ -42,6 +43,7 @@ $(document).ready(function(){
 			alertify.success(data.mensaje);
 			location.reload();
 		}).fail(function( jqXHR, textStatus) {
+			debugger
 			alertify.error('Error al actualizar');
 	    });
 	});

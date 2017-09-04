@@ -40,8 +40,15 @@
                     <li><a href="{{ url('noticia/fotos') }}"><i class='fa fa-plus-circle'></i>Fotos</a></li>
                 </ul>
             </li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-joomla'></i> <span>Micrositio</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('unidad-academica.index') }}"><i class='fa fa-cubes'></i> Departamento</a></li>
+                </ul>
+            </li>
+
+
+
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>

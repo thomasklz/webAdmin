@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('noticia/registar', 'NoticiaController@registrarNoticia');
 Route::get('noticia/nueva/categoria', 'NoticiaController@indexCategoria');
 Route::resource('categoria', 'CategoriaController');
+Route::resource('unidad-academica', 'UnidadAcademicaController');
 
 Route::get('noticia/fotos', 'NoticiaController@registrarFotos');
 

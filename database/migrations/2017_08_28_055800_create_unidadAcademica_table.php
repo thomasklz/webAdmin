@@ -17,7 +17,7 @@ class CreateUnidadAcademicaTable extends Migration
             $table->increments('id');
             $table->string('nombre',150);
             $table->string('logo',50);
-         
+            $table->boolean('estado');
         });
     }
 
