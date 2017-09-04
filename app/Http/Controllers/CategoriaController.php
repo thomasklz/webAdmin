@@ -44,7 +44,7 @@ class CategoriaController extends Controller
         
     }
  
-    public function show(Request $request, $id)
+   /* public function show(Request $request, $id)
     {
     	if ($request->ajax()){
 	    	$result = DB::table('Categorias')
@@ -52,9 +52,8 @@ class CategoriaController extends Controller
 	                     ->first();
 	        return response()->json($result);
         }
-        //return view('adminlte::noticia.categoria', compact('result'));
-
-    }
+	}
+    */
     public function destroy(Request $request, $id)
     {
     	if ($request->ajax()){
@@ -69,7 +68,7 @@ class CategoriaController extends Controller
         if ($request->ajax()){
             $categorias = DB::table('Categorias')
                      ->where('id', $id)
-                     ->update(['categoria' => $request->txtCategoria]);
+                     ->update(['categoria' => $request->categoria]);    
             return response()->json(['mensaje'=> 'Cotegoría actualizada']);
         }
     }

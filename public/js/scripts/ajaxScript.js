@@ -1,31 +1,26 @@
 $(document).ready(function(){
 	alertify.logPosition("bottom right");
+	//show
 	$('[data-route]').click(function(e){
         e.preventDefault();;
-        var urls=($(this).data('route'));
-	    $.ajax({
-	        type: 'get',
-	        url: urls,
-	        success: function(data) {
-	           $('input[name=VMCategoria]').val(data.categoria);
-	        },
-	    });
+        var catego = $(this).parents("tr").find("td").eq(1).html();
+        var id = $(this).parents("tr").find("td").eq(0).html();
+        $('input[name=VMCategoria]').val(catego);
+	    $('input[name=idCategoria]').val(id);
 	});
-
 	//Delete
 	$('.bnt-delete').click(function(e){
 		e.preventDefault();
 		var row = $(this).parents('tr');
 		var form = $(this).parents('form');
 		var url = form.attr('action');
-		debugger
 		alertify.confirm("Está seguro que desea eliminar?",
 			function(){
 				$.post(url,form.serialize(), function(result){
 					row.fadeOut();
 					alertify.success(result.mensaje);
 				}).fail(function(error){
-					alertify.error('error message');
+					alertify.error('Error al eliminar');
 				});
 		    }
 		);
@@ -34,17 +29,20 @@ $(document).ready(function(){
 	$('[data-update]').click(function(e){
 		e.preventDefault();
 		var txtCategoria = $('input[name=VMCategoria]').val();
-		var url=($(this).data('update'));
-		debugger
-	
-			$.post(url,txtCategoria, function(result){
-					alertify.success(result.mensaje);
-					debugger
-			}).fail(function(error){
-					alertify.error('error message');
-					debugger
-				});
-
-		
+		var id = $('input[name=idCategoria]').val();
+		var url = 'categoria/'+id ;
+		var token= $('input[name=_token]').val(); 
+	    $.ajax({
+            data: {categoria:txtCategoria},
+            type: "PUT",
+            dataType: "json",
+            url: url,
+            headers: {'X-CSRF-TOKEN': token},
+        }).done(function( data, textStatus, jqXHR ){
+			alertify.success(data.mensaje);
+			location.reload();
+		}).fail(function( jqXHR, textStatus) {
+			alertify.error('Error al actualizar');
+	    });
 	});
 });  
