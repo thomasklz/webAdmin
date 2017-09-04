@@ -26,10 +26,16 @@ class UnidadAcademicaController extends Controller
     {
 		$this->validate($request, 
 			['departamento' => 'required|alpha', 
-			 'logo' => 'required']);
+			 'logo' => 'required|mimes:jpg,png,jpeg']);
+        $file = $request->file('logo');
+        $nombre = $file->getClientMimeType();
+        $tipoImagen = str_replace('image/', '.',$nombre);
+        $fileName = uniqid() .$tipoImagen ;
+        $path = public_path() . '/img/departamentos';
+        $file->move($path, $fileName);
         $departamento = new UnidadAcademica;
         $departamento->nombre = $request->departamento;
-        $departamento->logo = $request->logo;
+        $departamento->logo = $fileName;
 	    $departamento->estado = 1;
 	    $departamento->save();
 	    alertify()->success('Departamento registrado')->delay(3000)->position('bottom right');

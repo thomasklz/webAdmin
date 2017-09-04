@@ -12,7 +12,7 @@
             @include('adminlte::mensaje.error')
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form" method="post" action="{{ route('unidad-academica.store') }}">
+              <form role="form" method="post" action="{{ route('unidad-academica.store') }}" enctype="multipart/form-data">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                  <!-- text input -->
                 <div class="form-group">
@@ -21,7 +21,7 @@
                 </div>
                  <div class="form-group">
                   <label>Subir logo: </label>
-                  <input type="file" name="logo" class="form-control">
+                  <input type="file" name="logo" class="form-control" file-model="ddddd.jpg" ng-model="identidad.logo">
                 </div>
                 <button type="submit" class="btn btn-block btn-success">Registrar</button>
               </form>
