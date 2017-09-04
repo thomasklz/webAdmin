@@ -26,22 +26,17 @@ class CategoriaController extends Controller
                      ->orderBy('id','desc')
                      ->get();
         return view('adminlte::noticia.categoria', compact('categorias'));
-
     }
+    
     public function store(Request $request)
     {
+		$this->validate($request, ['categoria' => 'required|alpha']);
         $categoria = new Categorias;
-        if (!empty($request->categoria)){
-	        $categoria->categoria = $request->categoria;
-	        $categoria->estado = 1;
-	        $categoria->save();
-	        alertify()->success('Categoria registrada correctamente','ok')->delay(3000)->position('bottom right');
-	        return redirect('categoria');
-    	}else{
-    		 alertify()->error('No se permiten valores nulos')->delay(3000)->position('bottom right');
-    		 return redirect('categoria');
-    	}
-        
+        $categoria->categoria = $request->categoria;
+	    $categoria->estado = 1;
+	    $categoria->save();
+	    alertify()->success('Categoria registrada correctamente','ok')->delay(3000)->position('bottom right');
+	    return redirect('categoria');
     }
  
    /* public function show(Request $request, $id)

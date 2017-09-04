@@ -10,6 +10,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Registrar categoria</h3>
             </div>
+            @include('adminlte::mensaje.error')
             <!-- /.box-header -->
             <div class="box-body">
               <form role="form" method="post" action="{{ route('categoria.store') }}">
