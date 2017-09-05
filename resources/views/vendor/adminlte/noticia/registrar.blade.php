@@ -4,16 +4,21 @@
     {{ trans('adminlte_lang::message.home') }}
 @endsection
 @section('css-top')
-
 <link rel="stylesheet" href=" {{ asset('css/wizar/form-elements.css') }}" rel="stylesheet" type="text/css" >
 <link rel="stylesheet" href=" {{ asset('css/wizar/font-awesome.min.css') }}" rel="stylesheet" type="text/css" >
 <link rel="stylesheet" href=" {{ asset('css/wizar/style.css') }}" rel="stylesheet" type="text/css" >
+<style type="text/css">
+ 
+.fila-base{ display: none; } /* fila base oculta */
+.eliminar{ cursor: pointer; color: #000; }
+
+</style>
 @endsection
 @section('main-content')
     <div class="container-fluid spark-screen">
       <div class="row">
         <div class="col-md-12">
-          <form role="form" action="" method="post" class="f1">
+           {!! Form::open(['route' => ['noticia.store'], 'method'=>'POST', 'class'=>'f1']) !!}
             <h3>Registrar noticias</h3>
             <p>Ingresar toda la información necesaria para publicar la noticia</p>
             <div class="f1-steps">
@@ -39,12 +44,11 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label">Categoría</label>
                 <div class="col-sm-10">
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                
+                  <select class="form-control" name="idcategoria">
+                   @foreach($categorias as $categoria )
+                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
@@ -52,20 +56,20 @@
               <div class="form-group" >
                 <label class="col-sm-2 control-label" style="padding-top:7px;">Título</label>
                 <div class="col-sm-10" style="padding-top:7px;">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="titulo">
                 </div>
               </div>
               <!-- textarea -->
               <div class="form-group">
                 <label class="col-sm-2 control-label" style="padding-top:7px;">Resumen</label>
                 <div class="col-sm-10" style="padding-top:7px;">
-                  <textarea class="form-control" rows="3"></textarea>
+                  <textarea class="form-control" rows="3" name="resumen"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" style="padding-top:7px;">Contenido</label>
                 <div class="col-sm-10" style="padding-top:7px;">
-                  <textarea class="form-control" rows="3"></textarea>
+                  <textarea class="form-control" rows="3" name="contenido"></textarea>
                 </div>
               </div>
               <!-- radio -->
@@ -76,7 +80,7 @@
                     <div class="col-md-1">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="radio1" value="option1" checked="">
+                          <input type="radio" name="publicar" value="1" checked="">
                           Si
                         </label>
                       </div>
@@ -84,7 +88,7 @@
                     <div class="col-md-1">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="radio1" value="option1">
+                          <input type="radio" name="publicar" value="0">
                           No
                         </label>
                       </div>
@@ -96,57 +100,80 @@
                   <button type="button" class="btn btn-next">Next</button>
               </div>
             </fieldset>
-
-                            <fieldset>
-                                <h4>Set up your account:</h4>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-email">Email</label>
-                                    <input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control" id="f1-email">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-password">Password</label>
-                                    <input type="password" name="f1-password" placeholder="Password..." class="f1-password form-control" id="f1-password">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-repeat-password">Repeat password</label>
-                                    <input type="password" name="f1-repeat-password" placeholder="Repeat password..." 
-                                                        class="f1-repeat-password form-control" id="f1-repeat-password">
-                                </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="button" class="btn btn-next">Next</button>
-                                </div>
-                            </fieldset>
-
-                            <fieldset>
-                                <h4>Social media profiles:</h4>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-facebook">Facebook</label>
-                                    <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-twitter">Twitter</label>
-                                    <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-google-plus">Google plus</label>
-                                    <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
-                                </div>
-                                <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-submit">Submit</button>
-                                </div>
-                            </fieldset>
-                      
-                      </form>
-                    </div>
-                </div>
+            <fieldset>
+              <h4>Agregar fotos a la noticia</h4>
+              <table id="tabla" class="table table-bordered table-striped">
+                <!-- Cabecera de la tabla -->
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th class="text-center">Publicar</th>
+                    <th class="text-center">Principal</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <!-- Cuerpo de la tabla con los campos -->
+                <tbody>
+                  <!-- fila base para clonar y agregar al final -->
+                  <tr class="fila-base">
+                    <td>
+                      <div class="form-group">
+                        <input type="file" name="foto" class="form-control">
+                      </div>
+                    </td>
+                    <td class="text-center">
+                     <select class="publicarFoto">
+                        <option value="0">Si</option>
+                        <option value="1">No</option>
+                      </select>
+                    </td>
+                    <td class="text-center">
+                      <select class="principalFoto">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                    </td>
+                    <td class="eliminar text-center">Eliminar</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        <input type="file" name="foto1" class="form-control">
+                      </div>
+                    </td>
+                    <td class="text-center">
+                     <select class="publicar" name="publicar1">
+                        <option value="0">Si</option>
+                        <option value="1">No</option>
+                      </select>
+                    </td>
+                    <td class="text-center">
+                      <select class="principal" name="principal1">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                      </select>
+                    </td>
+                    <td class="eliminar text-center">Eliminar</td>
+                  </tr>
+                  <!-- fin de código: fila base -->
+                </tbody>
+              </table>
+              <input type="button" id="agregar" value="Nueva foto" />
+              <div class="f1-buttons">
+                <button type="button" class="btn btn-previous">Previous</button>
+                <button type="submit" class="btn btn-submit">Publicar</button>
+              </div>
+            </fieldset>
+          {!! Form::close() !!}
+        </div>
+      </div>
     </div>
 @endsection
 @section('scripts-button')
 <script src=" {{ asset('js/wizar/jquery.backstretch.min.js') }}"></script>
 <script src=" {{ asset('js/wizar/retina-1.1.0.min.js') }}"></script>
 <script src=" {{ asset('js/wizar/scripts.js') }}"></script>
+<script src=" {{ asset('js/scripts/registerPhoto.js') }}"></script>
 @endsection
 <!-- Left side column. contains the logo and sidebar -->
 
