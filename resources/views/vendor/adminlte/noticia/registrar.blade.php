@@ -22,20 +22,16 @@
             <h3>Registrar noticias</h3>
             <p>Ingresar toda la información necesaria para publicar la noticia</p>
             <div class="f1-steps">
-              <div class="f1-progress">
+              <div class="f1-progress"> 
                 <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
               </div>
               <div class="f1-step active">
-                <div class="f1-step-icon" style="padding-left: 15px;"><i class="fa fa-user"></i></div>
+                <div class="f1-step-icon" style="padding-left: 10px;"><i class="fa fa-newspaper-o"></i></div>
                 <p>Noticia</p>
               </div>
               <div class="f1-step">
-                <div class="f1-step-icon" style="padding-left: 13px;"><i class="fa fa-key"></i></div>
+                <div class="f1-step-icon" style="padding-left: 12px;"><i class="fa fa-photo"></i></div>
                 <p>account</p>
-              </div>
-              <div class="f1-step">
-                <div class="f1-step-icon" style="padding-left: 13px;"><i class="fa fa-twitter"></i></div>
-                <p>social</p>
               </div>
             </div>
             <fieldset>
@@ -101,7 +97,7 @@
               </div>
             </fieldset>
             <fieldset>
-              <h4>Agregar fotos a la noticia</h4>
+              <h4>Agregar fotos a la noticia (max 5)</h4>
               <table id="tabla" class="table table-bordered table-striped">
                 <!-- Cabecera de la tabla -->
                 <thead>
@@ -118,17 +114,17 @@
                   <tr class="fila-base">
                     <td>
                       <div class="form-group">
-                        <input type="file" name="foto" class="form-control">
+                        <input type="file" name="foto" id="foto" class="form-control">
                       </div>
                     </td>
                     <td class="text-center">
-                     <select class="publicarFoto">
+                     <select class="publicarFoto" id="publicar" name="publicar">
                         <option value="0">Si</option>
                         <option value="1">No</option>
                       </select>
                     </td>
                     <td class="text-center">
-                      <select class="principalFoto">
+                      <select class="principalFoto" id="principal" name="principal" >
                         <option value="0">No</option>
                         <option value="1">Si</option>
                       </select>
@@ -138,17 +134,17 @@
                   <tr>
                     <td>
                       <div class="form-group">
-                        <input type="file" name="foto1" class="form-control">
+                        <input type="file" name="foto4" class="form-control">
                       </div>
                     </td>
                     <td class="text-center">
-                     <select class="publicar" name="publicar1">
+                     <select class="publicar" name="publicar4">
                         <option value="0">Si</option>
                         <option value="1">No</option>
                       </select>
                     </td>
                     <td class="text-center">
-                      <select class="principal" name="principal1">
+                      <select class="principal" name="principal4">
                         <option value="0">No</option>
                         <option value="1">Si</option>
                       </select>
@@ -158,7 +154,7 @@
                   <!-- fin de código: fila base -->
                 </tbody>
               </table>
-              <input type="button" id="agregar" value="Nueva foto" />
+              <input type="button" id="agregar" value="Nueva foto" class="btn btn-primary" />
               <div class="f1-buttons">
                 <button type="button" class="btn btn-previous">Previous</button>
                 <button type="submit" class="btn btn-submit">Publicar</button>
