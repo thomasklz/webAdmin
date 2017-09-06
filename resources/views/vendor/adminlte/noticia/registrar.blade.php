@@ -38,12 +38,21 @@
               <h4>Datos de la noticia</h4>
               <br>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Categoría</label>
+                <label class="col-sm-2 control-label">Unidad Académica</label>
                 <div class="col-sm-10">
-                
+                  <select class="form-control" name="idUnidadAcademica">
+                   @foreach($unidadAcademicas as $unidadAcademica )
+                    <option value="{{ $unidadAcademica->id }}">{{ $unidadAcademica->nombre }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" >Categoría</label>
+                <div class="col-sm-10" style="padding-top:7px;">
                   <select class="form-control" name="idcategoria">
                    @foreach($categorias as $categoria )
-                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                    <option value="{{ $categoria->id }}" >{{ $categoria->categoria }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -114,22 +123,22 @@
                   <tr class="fila-base">
                     <td>
                       <div class="form-group">
-                        <input type="file" name="foto" id="foto" class="form-control">
+                        <input type="file" name="foto5" id="foto" class="form-control">
                       </div>
                     </td>
                     <td class="text-center">
-                     <select class="publicarFoto" id="publicar" name="publicar">
-                        <option value="0">Si</option>
-                        <option value="1">No</option>
+                     <select class="publicarFoto" id="publicar" name="publicar5">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
                       </select>
                     </td>
                     <td class="text-center">
-                      <select class="principalFoto" id="principal" name="principal" >
+                      <select class="principalFoto" id="principal" name="principal5" >
                         <option value="0">No</option>
                         <option value="1">Si</option>
                       </select>
                     </td>
-                    <td class="eliminar text-center">Eliminar</td>
+                    <td  id="eliminar" class="eliminar text-center">Eliminar</td>
                   </tr>
                   <tr>
                     <td>
@@ -139,17 +148,17 @@
                     </td>
                     <td class="text-center">
                      <select class="publicar" name="publicar4">
-                        <option value="0">Si</option>
-                        <option value="1">No</option>
+                        <option value="1" selected>Si</option>
+                        <option value="0">No</option>
                       </select>
                     </td>
                     <td class="text-center">
                       <select class="principal" name="principal4">
-                        <option value="0">No</option>
+                        <option value="0" selected>No</option>
                         <option value="1">Si</option>
                       </select>
                     </td>
-                    <td class="eliminar text-center">Eliminar</td>
+                    <td id="eliminar" class="eliminar text-center">Eliminar</td>
                   </tr>
                   <!-- fin de código: fila base -->
                 </tbody>
