@@ -4,14 +4,14 @@
 
     <!-- Modal content-->
     <div class="modal-content"> 
-     {!! Form::open(['method'=>'PUT']) !!}
+      {!! Form::open(['method'=>'PUT']) !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Categoría</h4>
+        <h4 class="modal-title">Editar la categoría del proyecto</h4>
       </div>
       <div class="modal-body" style="background-color: #F6F6F5" >
        <input type="hidden" name="idCategoria">
-       <input type="hidden" name="ruta" value="categoria/">
+       <input type="hidden" name="ruta" value="categoria-proyecto/">
         <div class="form-group">
           <label>Categoría</label>
           <input type="text" name="VMCategoria" class="form-control">
@@ -19,7 +19,7 @@
        
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary bnt-edit" data-dismiss="modal" data-update="{{url ('categoria.update')}}">Editar</button> 
+        <button type="submit" class="btn btn-primary bnt-edit" data-dismiss="modal" data-update="{{url ('categoria-proyecto.update')}}">Editar</button> 
        
         <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
       </div>
@@ -28,8 +28,3 @@
 
   </div>
 </div>
-
-
-
-
- 

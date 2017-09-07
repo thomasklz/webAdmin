@@ -5,7 +5,6 @@
 @endsection
 @section('css-top')
 <link rel="stylesheet" href=" {{ asset('css/wizar/form-elements.css') }}" rel="stylesheet" type="text/css" >
-<link rel="stylesheet" href=" {{ asset('css/wizar/font-awesome.min.css') }}" rel="stylesheet" type="text/css" >
 <link rel="stylesheet" href=" {{ asset('css/wizar/style.css') }}" rel="stylesheet" type="text/css" >
 <style type="text/css">
  
@@ -38,8 +37,8 @@
               <h4>Datos de la noticia</h4>
               <br>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Unidad Académica</label>
-                <div class="col-sm-10">
+                <label class="col-md-2 control-label">Unidad Académica</label>
+                <div class="col-md-10">
                   <select class="form-control" name="idUnidadAcademica">
                    @foreach($unidadAcademicas as $unidadAcademica )
                     <option value="{{ $unidadAcademica->id }}">{{ $unidadAcademica->nombre }}</option>
@@ -48,8 +47,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" >Categoría</label>
-                <div class="col-sm-10" style="padding-top:7px;">
+                <label class="col-md-2 control-label" >Categoría</label>
+                <div class="col-md-10" style="padding-top:7px;">
                   <select class="form-control" name="idcategoria">
                    @foreach($categorias as $categoria )
                     <option value="{{ $categoria->id }}" >{{ $categoria->categoria }}</option>
@@ -138,7 +137,7 @@
                         <option value="1">Si</option>
                       </select>
                     </td>
-                    <td  id="eliminar" class="eliminar text-center">Eliminar</td>
+                    <td  class="eliminar text-center">Eliminar</td>
                   </tr>
                   <tr>
                     <td>
@@ -158,7 +157,7 @@
                         <option value="1">Si</option>
                       </select>
                     </td>
-                    <td id="eliminar" class="eliminar text-center">Eliminar</td>
+                    <td class="eliminar text-center">Eliminar</td>
                   </tr>
                   <!-- fin de código: fila base -->
                 </tbody>

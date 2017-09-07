@@ -19,9 +19,11 @@ class CreateProyectoTable extends Migration
             $table->string('titulo',300);
             $table->longText('contenido');
             $table->string('foto',30);
-            $table->string('estadoProyecto',20);
             $table->date('fecha');
             $table->boolean('estado');
+            $table->integer('idEstadoproyecto')->unsigned();
+            $table->index('idEstadoproyecto');
+            $table->foreign('idEstadoproyecto')->references('id')->on('estadoproyecto'); 
             $table->integer('idCategoriaproyecto')->unsigned();
             $table->index('idCategoriaproyecto');
             $table->foreign('idCategoriaproyecto')->references('id')->on('categoriaproyecto'); 

@@ -35,9 +35,17 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticias</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('categoria.index') }}"><i class='fa fa-navicon'></i>Categoría</a></li>
-                    <li><a href="{{ route('noticia.index') }}"><i class='fa fa-plus-circle'></i>Noticia</a></li>
-                    <li><a href="{{ url('noticia/fotos') }}"><i class='fa fa-plus-circle'></i>Fotos</a></li>
+                    <li><a href="{{ route('categoria.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
+                    <li><a href="{{ route('noticia.index') }}"><i class='fa fa-plus-circle'></i>Nueva</a></li>
+                    <li><a href="{{ url('noticia.show') }}"><i class='fa fa-navicon'></i>Listado</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-folder-open-o'></i> <span>Proyectos</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('categoria-proyecto.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
+                    <li><a href="{{ route('estado-proyecto.index') }}"><i class='fa fa-certificate'></i>Estados</a></li>
+                    <li><a href="{{ route('proyecto.index') }}"><i class='fa fa-plus-circle'></i>Nuevo</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -46,6 +54,7 @@
                     <li><a href="{{ route('unidad-academica.index') }}"><i class='fa fa-cubes'></i> Departamento</a></li>
                 </ul>
             </li>
+
 
 
 

@@ -16,6 +16,10 @@ class NoticiaController extends Controller
      *
      * @return Response
      */
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $categorias = DB::table('Categorias')
@@ -27,7 +31,7 @@ class NoticiaController extends Controller
        return view('adminlte::noticia.registrar', compact('unidadAcademicas','categorias'));
     }
     
-     public function store(Request $request)
+    public function store(Request $request)
     {
         $date= new \DateTime();
         $noticia = new Noticia;

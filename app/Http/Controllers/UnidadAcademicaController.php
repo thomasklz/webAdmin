@@ -27,6 +27,7 @@ class UnidadAcademicaController extends Controller
 		$this->validate($request, 
 			['departamento' => 'required|alpha', 
 			 'logo' => 'required|mimes:jpg,png,jpeg']);
+
         $file = $request->file('logo');
         $nombre = $file->getClientMimeType();
         $tipoImagen = str_replace('image/', '.',$nombre);

@@ -13,7 +13,8 @@ $(document).ready(function(){
 	});
 
 	// Evento que selecciona la fila y la elimina 
-	$("#eliminar").on('click', function(){
-	//$(document).on("click",".eliminar",function(){
-	
+	$(document).on("click",".eliminar",function(){
+		var parent = $(this).parents().get(0);
+		$(parent).remove();		
+	});
 });  

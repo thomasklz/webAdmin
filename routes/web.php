@@ -15,11 +15,14 @@ Route::get('/', function () {
     return redirect('/login');
 });
 Route::resource('noticia', 'NoticiaController');
-Route::get('noticia/nueva/categoria', 'NoticiaController@indexCategoria');
+//Route::get('noticia/nueva/categoria', 'NoticiaController@indexCategoria');
 Route::resource('categoria', 'CategoriaController');
+Route::resource('categoria-proyecto', 'CategoriaProyectoController');
+Route::resource('estado-proyecto', 'EstadoProyectoController');
+Route::resource('proyecto', 'ProyectoController');
 Route::resource('unidad-academica', 'UnidadAcademicaController');
 
-Route::get('noticia/fotos', 'NoticiaController@registrarFotos');
+//Route::get('noticia/fotos', 'NoticiaController@registrarFotos');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
