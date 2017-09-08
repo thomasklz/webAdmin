@@ -43,7 +43,7 @@ class ProyectoController extends Controller
     {
         
       $this->validate($request, [
-    					 'autor' => 'required|alpha',
+    					 'autor' => 'required',
     					 'titulo' => 'required',
     					 'contenido' => 'required',
     					 'foto' => 'required|mimes:jpg,png,jpeg',
@@ -101,7 +101,7 @@ class ProyectoController extends Controller
                      ->update([
                           'idUnidadacademica' => $request->unidad
                          ]);                
-            return response()->json(['mensaje'=> 'Proyecto actualizada']);
+            return response()->json(['mensaje'=> 'Proyecto actualizado']);
         }
     }
 }

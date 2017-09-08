@@ -11,7 +11,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <!-- text input -->
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Unidad Académica</label>
+                    <label class="col-md-2 control-label">Micrositio</label>
                     <div class="col-md-10">
                         <select class="form-control" name="idUnidadAcademica">
                             @foreach($unidadAcademicas as $unidadAcademica )
@@ -83,7 +83,7 @@
                         <th>Autor</th>
                         <th class="text-center">Título</th>
                         <th class="text-center">Contenido</th>
-                        <th class="text-center">Unidad Academica</th>
+                        <th class="text-center">Micrositio</th>
                         <th class="text-center">Categoría</th>
                         <th class="text-center">Estado proyecto</th>
                         <th class="text-center">Acciones</th>

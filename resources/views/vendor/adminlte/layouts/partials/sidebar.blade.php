@@ -33,6 +33,12 @@
         <ul class="sidebar-menu">
             <li class="header">MENÚ</li>
             <li class="treeview">
+                <a href="#"><i class='fa fa-joomla'></i> <span>Micrositio</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('unidad-academica.index') }}"><i class='fa fa-cubes'></i> Departamento</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
                 <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticias</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('categoria.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
@@ -49,9 +55,9 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-joomla'></i> <span>Micrositio</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa  fa-google-wallet'></i> <span>Slider</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('unidad-academica.index') }}"><i class='fa fa-cubes'></i> Departamento</a></li>
+                    <li><a href="{{ route('slider.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
                 </ul>
             </li>
 

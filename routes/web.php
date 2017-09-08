@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 Route::resource('noticia', 'NoticiaController');
-//Route::get('noticia/nueva/categoria', 'NoticiaController@indexCategoria');
+Route::resource('slider', 'SliderController');
 Route::resource('categoria', 'CategoriaController');
 Route::resource('categoria-proyecto', 'CategoriaProyectoController');
 Route::resource('estado-proyecto', 'EstadoProyectoController');

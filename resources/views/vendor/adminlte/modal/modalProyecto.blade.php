@@ -12,7 +12,7 @@
                 <input type="hidden" name="idProyecto">
                 <input type="hidden" name="ruta" value="proyecto/">
                 <div class="form-group">
-                    <label class="col-md-2 control-label">U.Académica</label>
+                    <label class="col-md-2 control-label">Micrositio</label>
                     <div class="col-md-10">
                         <select class="form-control" id="idUnidadAcademica">
                             @foreach($unidadAcademicas as $unidadAcademica )
