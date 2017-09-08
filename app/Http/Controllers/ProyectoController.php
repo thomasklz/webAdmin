@@ -21,9 +21,6 @@ class ProyectoController extends Controller
       $estados = DB::table('EstadoProyecto')
                      ->where('estado','=',1)
                      ->get();
-      $proyectos = DB::table('Proyecto')
-                     ->where('estado','=',1)
-                     ->get();
 
       $proyectos = DB::table('Proyecto')
             ->join('categoriaproyecto', 'Proyecto.idCategoriaproyecto', '=', 'categoriaproyecto.id')
@@ -31,6 +28,7 @@ class ProyectoController extends Controller
             ->join('unidadproyecto', 'Proyecto.id', '=', 'unidadproyecto.idProyecto')
             ->join('unidadacademica', 'unidadproyecto.idUnidadacademica', '=', 'unidadacademica.id')
             ->select('Proyecto.*', 'categoriaproyecto.categoria', 'estadoproyecto.nombre as estado', 'unidadacademica.nombre as unidad')
+            ->where('Proyecto.estado','=',1)
             ->get();            
         //$value = str_limit('The PHP framework for web artisans.', 7);
       $categorias = DB::table('CategoriaProyecto')
@@ -76,5 +74,34 @@ class ProyectoController extends Controller
       $unidadesProyecto->save();
       alertify()->success('Proyecto registrado correctamente')->delay(3000)->position('bottom right');
       return redirect('proyecto');
+    }
+    public function destroy(Request $request, $id) 
+    {
+      if ($request->ajax()){
+          $proyecto = DB::table('Proyecto')
+             ->where('id', $id)
+                     ->update(['estado' => 0]);
+      return response()->json(['mensaje'=> 'Proyecto eliminado']);
+      }
+    }
+    public function update(Request $request, $id)
+    {
+        if ($request->ajax()){
+            $proyecto = DB::table('Proyecto')
+                     ->where('id', $id)
+                     ->update([
+                          'autor' => $request->autor,
+                          'titulo' => $request->titulo,
+                          'contenido' => $request->contenido,
+                          'idEstadoproyecto' => $request->estado,
+                          'idCategoriaproyecto' => $request->categoria
+                         ]);
+            $unidad = DB::table('UnidadProyecto')
+                     ->where('id', $id)
+                     ->update([
+                          'idUnidadacademica' => $request->unidad
+                         ]);                
+            return response()->json(['mensaje'=> 'Proyecto actualizada']);
+        }
     }
 }
