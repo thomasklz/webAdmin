@@ -89,6 +89,7 @@
 @endsection
 @section('scripts-button')
 <script src=" {{ asset('js/scripts/ajaxSlider.js') }}"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 @endsection
 <!-- Left side column. contains the logo and sidebar -->
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     alertify.logPosition("bottom right");
-    var filename="";
+   // var filename="";
     //show proyecto
     $('[data-route]').click(function(e) {
         e.preventDefault();;
@@ -35,29 +35,20 @@ $(document).ready(function() {
         );
     });
 
-    $('#select_file').click(function() {
-    $('#VMfoto').trigger('click');
-    $('#VMfoto').change(function() {
-         filename = $('#VMfoto').val();
-        debugger
-        if (filename.substring(3,11) == 'fakepath') {
-            filename = filename.substring(12);
-        } // Remove c:\fake at beginning from localhost chrome
-        $('#my_file').html(filename);
-   });
-})
+
 
     //Update  proyecto
     $('[data-update]').click(function(e) {
         e.preventDefault();
         var titulo = $('input[name=VMtitulo]').val();
         var link = $('input[name=VMlink]').val();
-        var filename = $('#VMfoto').val();
-
-
-        if (filename==""){
-           filename =  $('input[name=fileFoto]').val();
-        }
+        var FileImage = $('#VMfoto')[0];
+        var filess = FileImage.files[0];
+        var formData = new FormData();
+         formData.append('archivo',filess);
+        //if (filename==""){
+       //    filename =  $('input[name=fileFoto]').val();
+       // }
         var unidad = $('#idUnidadAcademica option:selected').val();
         var id = $('input[name=idSlider]').val();
         var ruta = $('input[name=ruta]').val();
@@ -65,10 +56,13 @@ $(document).ready(function() {
         var token = $('input[name=_token]').val();
         debugger
         $.ajax({
-            data: { titulo: titulo, link: link, foto: filename, unidad: unidad},
+            data: formData,
             type: "PUT",
             dataType: "json",
             url: url,
+            cache: false,
+            contentType: false,
+            processData: false,
             headers: { 'X-CSRF-TOKEN': token },
         }).done(function(data, textStatus, jqXHR) {
             debugger

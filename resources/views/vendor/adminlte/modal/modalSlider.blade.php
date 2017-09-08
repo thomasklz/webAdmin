@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            {!! Form::open(['method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['id'=>'uploadimage', 'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Editar Slider</h4>

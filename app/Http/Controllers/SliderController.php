@@ -66,12 +66,27 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
+            
+            $file = $request->file('VMfoto');;
+
+           
+            return response()->json(['mensaje'=> $file]);
+
+            $nombre = $file->getClientMimeType();
+            $tipoImagen = str_replace('image/', '.',$nombre);
+            $fileName = uniqid() .$tipoImagen ;
+            $path = public_path() . '/img/slider';
+            $file->move($path, $fileName);
+
+
+
+
             $slider = DB::table('Slider')
                      ->where('id', $id)
                      ->update([
-                          'titulo' => $request->titulo,
-                          'link' => $request->link,
-                          'foto' => $request->foto
+                          'titulo' => $request->VMtitulo,
+                          'link' => $request->VMlink,
+                          'foto' => $fileName
                          ]);
             $unidad = DB::table('UnidadSlider')
                      ->where('id', $id)
