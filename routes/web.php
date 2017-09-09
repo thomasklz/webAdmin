@@ -20,9 +20,9 @@ Route::resource('categoria', 'CategoriaController');
 Route::resource('categoria-proyecto', 'CategoriaProyectoController');
 Route::resource('estado-proyecto', 'EstadoProyectoController');
 Route::resource('proyecto', 'ProyectoController');
+Route::resource('filosofia', 'FilosofiaController');
 Route::resource('unidad-academica', 'UnidadAcademicaController');
 
-//Route::get('noticia/fotos', 'NoticiaController@registrarFotos');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
