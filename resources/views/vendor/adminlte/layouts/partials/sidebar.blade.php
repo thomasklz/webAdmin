@@ -66,7 +66,12 @@
                     <li><a href="{{ route('filosofia.index') }}"><i class='fa fa-plus-circle'></i> Nueva</a></li>
                 </ul>
             </li>
-
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Enlace</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('enlace.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
+                </ul>
+            </li>
 
 
 
