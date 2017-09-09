@@ -66,21 +66,16 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
-            
-            $file = $request->file('VMfoto');;
-
-           
-            return response()->json(['mensaje'=> $file]);
-
-            $nombre = $file->getClientMimeType();
-            $tipoImagen = str_replace('image/', '.',$nombre);
-            $fileName = uniqid() .$tipoImagen ;
-            $path = public_path() . '/img/slider';
-            $file->move($path, $fileName);
-
-
-
-
+            $file = $request->file('foto');
+            if (empty($file)){
+              $fileName=$request->VMfoto;
+            }else{
+              $nombre = $file->getClientMimeType();
+              $tipoImagen = str_replace('image/', '.',$nombre);
+              $fileName = uniqid() .$tipoImagen ;
+              $path = public_path() . '/img/slider';
+              $file->move($path, $fileName);
+            }
             $slider = DB::table('Slider')
                      ->where('id', $id)
                      ->update([
@@ -89,7 +84,7 @@ class SliderController extends Controller
                           'foto' => $fileName
                          ]);
             $unidad = DB::table('UnidadSlider')
-                     ->where('id', $id)
+                     ->where('idSlider', $id)
                      ->update([
                           'idUnidadacademica' => $request->unidad
                          ]);                

@@ -1,6 +1,5 @@
 $(document).ready(function() {
     alertify.logPosition("bottom right");
-   // var filename="";
     //show proyecto
     $('[data-route]').click(function(e) {
         e.preventDefault();;
@@ -12,8 +11,7 @@ $(document).ready(function() {
         $('input[name=idSlider]').val(id);
         $('input[name=VMtitulo]').val(titulo);
         $('input[name=VMlink]').val(link);
-        $('input[name=fileFoto]').val(foto);
-        //$('#VMfoto').val();
+        $('input[name=VMfoto]').val(foto);
         $('#idUnidadAcademica option[ids="' + unidad + '"]').prop("selected", true);
 
     });
@@ -34,43 +32,27 @@ $(document).ready(function() {
             }
         );
     });
-
-
-
     //Update  proyecto
     $('[data-update]').click(function(e) {
         e.preventDefault();
-        var titulo = $('input[name=VMtitulo]').val();
-        var link = $('input[name=VMlink]').val();
-        var FileImage = $('#VMfoto')[0];
-        var filess = FileImage.files[0];
-        var formData = new FormData();
-         formData.append('archivo',filess);
-        //if (filename==""){
-       //    filename =  $('input[name=fileFoto]').val();
-       // }
-        var unidad = $('#idUnidadAcademica option:selected').val();
+        var formData = new FormData($('#uploadimage')[0]);
         var id = $('input[name=idSlider]').val();
         var ruta = $('input[name=ruta]').val();
         var url = ruta + id;
         var token = $('input[name=_token]').val();
-        debugger
         $.ajax({
-            data: formData,
-            type: "PUT",
-            dataType: "json",
             url: url,
-            cache: false,
+            headers: { 'X-CSRF-TOKEN': token },
+            type: "POST",
+            dataType: "json",
             contentType: false,
             processData: false,
-            headers: { 'X-CSRF-TOKEN': token },
+            data: formData,
         }).done(function(data, textStatus, jqXHR) {
-            debugger
             alertify.success(data.mensaje);
             location.reload();
         }).fail(function(jqXHR, textStatus) {
-            debugger
-            alertify.error('Error al actualizar');
+            alertify.error('Error al  actualizar');
         });
     });
 });
