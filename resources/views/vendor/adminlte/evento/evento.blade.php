@@ -78,6 +78,7 @@
                 @foreach($eventos as $evento)
                 <tr>
                   <td class="text-center">{{ $evento->id }}</td>
+                  <td>{{ $evento->titulo }}</td>
                   <td>{{ $evento->unidad }}</td>
                   <td>{{ $evento->detalle }}</td>
                   <td>{{ $evento->url }}</td>
@@ -107,7 +108,7 @@
     @include('adminlte::modal.modalEvento')
 @endsection
 @section('scripts-button')
-<script src=" {{ asset('js/scripts/ajaxEnlace.js') }}"></script>
+<script src=" {{ asset('js/scripts/ajaxEvento.js') }}"></script>
 <script src=" {{ asset('js/adminlte/bootstrap-datetimepicker.min.js') }}"></script>
 <script type="text/javascript">
     $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});

@@ -64,13 +64,14 @@ class EventosController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
+        	$date= new \DateTime($request->VMfecha);
             $filosofia = DB::table('Eventos')
                      ->where('id', $id)
                      ->update([
                           'titulo' => $request->VMtitulo,
                           'detalle' => $request->VMdetalle,
                           'url' => $request->VMurl,
-                          'fecha' => $request->VMfecha->format('Y-m-d H:i:s'),
+                          'fecha' => $date->format('Y-m-d H:i:s'),
                           'lugar' => $request->VMlugar
                          ]);
             $Unidadeventos = DB::table('UnidadEventos')
