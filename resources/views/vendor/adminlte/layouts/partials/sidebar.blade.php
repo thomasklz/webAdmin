@@ -55,6 +55,12 @@
                 </ul>
             </li>
             <li class="treeview">
+                <a href="#"><i class='fa fa-bookmark'></i> <span>Servicio</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('servicio.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
                 <a href="#"><i class='fa  fa-google-wallet'></i> <span>Slider</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('slider.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
@@ -78,10 +84,6 @@
                     <li><a href="{{ route('enlace.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
                 </ul>
             </li>
-
-
-
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">

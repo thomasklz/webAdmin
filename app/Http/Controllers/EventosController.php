@@ -65,7 +65,7 @@ class EventosController extends Controller
     {
         if ($request->ajax()){
         	$date= new \DateTime($request->VMfecha);
-            $filosofia = DB::table('Eventos')
+            $evento = DB::table('Eventos')
                      ->where('id', $id)
                      ->update([
                           'titulo' => $request->VMtitulo,
