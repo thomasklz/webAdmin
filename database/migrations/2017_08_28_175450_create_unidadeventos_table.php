@@ -20,8 +20,7 @@ class CreateUnidadeventosTable extends Migration
             $table->foreign('idEvento')->references('id')->on('eventos'); 
             $table->integer('idUnidadacademica')->unsigned();
             $table->index('idUnidadacademica');
-            $table->foreign('idUnidadacademica')->references('id')->on('unidadAcademica');   
-            $table->boolean('estado');  
+            $table->foreign('idUnidadacademica')->references('id')->on('unidadAcademica');    
         });
     }
 

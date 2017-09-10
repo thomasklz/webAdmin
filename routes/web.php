@@ -22,6 +22,7 @@ Route::resource('estado-proyecto', 'EstadoProyectoController');
 Route::resource('proyecto', 'ProyectoController');
 Route::resource('filosofia', 'FilosofiaController');
 Route::resource('enlace', 'EnlaceController');
+Route::resource('evento', 'EventosController');
 Route::resource('unidad-academica', 'UnidadAcademicaController');
 
 

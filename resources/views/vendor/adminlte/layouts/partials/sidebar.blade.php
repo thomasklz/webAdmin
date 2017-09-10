@@ -39,7 +39,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticias</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-newspaper-o'></i> <span>Noticia</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('categoria.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
                     <li><a href="{{ route('noticia.index') }}"><i class='fa fa-plus-circle'></i>Nueva</a></li>
@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-folder-open-o'></i> <span>Proyectos</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-folder-open-o'></i> <span>Proyecto</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('categoria-proyecto.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
                     <li><a href="{{ route('estado-proyecto.index') }}"><i class='fa fa-certificate'></i>Estados</a></li>
@@ -64,6 +64,12 @@
                 <a href="#"><i class='fa fa-road'></i> <span>Filosofía</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('filosofia.index') }}"><i class='fa fa-plus-circle'></i> Nueva</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-bookmark'></i> <span>Evento</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('evento.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
                 </ul>
             </li>
             <li class="treeview">
