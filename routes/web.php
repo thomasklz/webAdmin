@@ -24,6 +24,7 @@ Route::resource('filosofia', 'FilosofiaController');
 Route::resource('enlace', 'EnlaceController');
 Route::resource('evento', 'EventosController');
 Route::resource('servicio', 'ServicioController');
+Route::resource('redes-sociales', 'RedesSocialesController');
 Route::resource('unidad-academica', 'UnidadAcademicaController');
 
 
