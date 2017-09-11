@@ -17,7 +17,7 @@
     <div class="container-fluid spark-screen">
       <div class="row">
         <div class="col-md-12">
-           {!! Form::open(['route' => ['noticia.store'], 'method'=>'POST', 'class'=>'f1']) !!}
+           {!! Form::open(['route' => ['noticia.store'], 'method'=>'POST', 'class'=>'f1', 'files'=>True]) !!}
             <h3>Registrar noticias</h3>
             <p>Ingresar toda la información necesaria para publicar la noticia</p>
             <div class="f1-steps">

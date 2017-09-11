@@ -43,10 +43,19 @@ class NoticiaController extends Controller
         $noticia->idCategoria = $request->idcategoria;
         $noticia->save();
         $contador =0;
+
         for ($i=1; $i <=5 ; $i++) { 
-            if (!empty($_POST['foto'.$i])){
+            if (!empty($request->file("foto".''.$i.''))){
+
+                $file=$request->file("foto".''.$i.'');
+                $nombre = $file->getClientMimeType();
+                $tipoImagen = str_replace('image/', '.',$nombre);
+                $fileName = uniqid() .$tipoImagen ;
+                $path = public_path() . '/img/noticia';
+                $file->move($path, $fileName);
+
                 $fotos = new FotosNoticias;
-                $fotos->fotos = $_POST['foto'.$i];
+                $fotos->fotos = $fileName;
                 $fotos->principal = $_POST['principal'.$i];
                 $fotos->publicar = $_POST['publicar'.$i];
                 $fotos->idNoticias = $noticia->id;
