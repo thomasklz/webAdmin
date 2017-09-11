@@ -87,19 +87,32 @@ class ProyectoController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
+
+            $file = $request->file('foto');
+            if (empty($file)){
+              $fileName=$request->VMfoto;
+            }else{
+              $nombre = $file->getClientMimeType();
+              $tipoImagen = str_replace('image/', '.',$nombre);
+              $fileName = uniqid() .$tipoImagen ;
+              $path = public_path() . '/img/proyectos';
+              $file->move($path, $fileName);
+            }
+           //return response()->json(['mensaje'=> $fileName]);
             $proyecto = DB::table('Proyecto')
                      ->where('id', $id)
                      ->update([
-                          'autor' => $request->autor,
-                          'titulo' => $request->titulo,
-                          'contenido' => $request->contenido,
-                          'idEstadoproyecto' => $request->estado,
-                          'idCategoriaproyecto' => $request->categoria
+                          'autor' => $request->VMautor,
+                          'titulo' => $request->VMtitulo,
+                          'contenido' => $request->VMcontenido,
+                          'foto' => $fileName,
+                          'idEstadoproyecto' => $request->VMestado,
+                          'idCategoriaproyecto' => $request->VMcategoria
                          ]);
             $unidad = DB::table('UnidadProyecto')
                      ->where('id', $id)
                      ->update([
-                          'idUnidadacademica' => $request->unidad
+                          'idUnidadacademica' => $request->idUnidadAcademica
                          ]);                
             return response()->json(['mensaje'=> 'Proyecto actualizado']);
         }

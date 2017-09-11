@@ -40,7 +40,6 @@
                     <input type="file" id="VMfoto" name="foto" class="form-control">
                   </div>  
                 </div>
-                 <div id="my_file"></div>
             </div>
             <div class="modal-footer">
                 <div class="col-sm-12" style="padding-top:15px;">

@@ -4,12 +4,13 @@ $(document).ready(function() {
     $('[data-route]').click(function(e) {
         e.preventDefault();;
         var id = $(this).parents("tr").find("td").eq(0).html();
-        var autor = $(this).parents("tr").find("td").eq(1).html();
-        var titulo = $(this).parents("tr").find("td").eq(2).html();
-        var contenido = $(this).parents("tr").find("td").eq(3).html();
-        var unidad = $(this).parents("tr").find("td").eq(4).html();
-        var categoria = $(this).parents("tr").find("td").eq(5).html();
+        var autor = $(this).parents("tr").find("td").eq(3).html();
+        var titulo = $(this).parents("tr").find("td").eq(4).html();
+        var contenido = $(this).parents("tr").find("td").eq(5).html();
+        var unidad = $(this).parents("tr").find("td").eq(1).html();
+        var categoria = $(this).parents("tr").find("td").eq(2).html();
         var estado = $(this).parents("tr").find("td").eq(6).html();
+        $('input[name=VMfoto]').val($('input[name=fotoTable]').val());
         $('input[name=idProyecto]').val(id);
         $('input[name=VMautor]').val(autor);
         $('input[name=VMtitulo]').val(titulo);
@@ -38,26 +39,26 @@ $(document).ready(function() {
     //Update  proyecto
     $('[data-update]').click(function(e) {
         e.preventDefault();
-        var autor = $('input[name=VMautor]').val();
-        var titulo = $('input[name=VMtitulo]').val();
-        var contenido = $('#contenido').val();
-        var unidad = $('#idUnidadAcademica option:selected').val();
-        var categoria = $('#idCategoriaproyecto option:selected').val();
-        var estado = $('#idEstadoproyecto option:selected').val();
+        var foo= $('input[name=VMfoto]').val();
+        var formData = new FormData($('#uploadimage')[0]); 
         var id = $('input[name=idProyecto]').val();
         var ruta = $('input[name=ruta]').val();
         var url = ruta + id;
         var token = $('input[name=_token]').val();
+        debugger
         $.ajax({
-            data: { autor: autor, titulo: titulo, contenido: contenido, unidad: unidad, categoria: categoria, estado: estado },
-            type: "PUT",
-            dataType: "json",
             url: url,
             headers: { 'X-CSRF-TOKEN': token },
+            type: "POST",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: formData,
         }).done(function(data, textStatus, jqXHR) {
             alertify.success(data.mensaje);
             location.reload();
         }).fail(function(jqXHR, textStatus) {
+            debugger
             alertify.error('Error al actualizar');
         });
     });

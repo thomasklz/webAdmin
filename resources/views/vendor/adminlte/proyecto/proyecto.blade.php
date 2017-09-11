@@ -79,25 +79,26 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">#Proyecto</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Micrositio</th>
+                        <th class="text-center">Categoría</th>
                         <th>Autor</th>
                         <th class="text-center">Título</th>
                         <th class="text-center">Contenido</th>
-                        <th class="text-center">Micrositio</th>
-                        <th class="text-center">Categoría</th>
-                        <th class="text-center">Estado proyecto</th>
+                        <th class="text-center">Estado</th>
                         <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($proyectos as $proyecto)
                     <tr>
+                    <input type="hidden" name="fotoTable" value="{{ $proyecto->foto }}">
                         <td class="text-center">{{ $proyecto->id }}</td>
+                        <td class="text-center">{{ $proyecto->unidad }}</td>
+                        <td class="text-center">{{ $proyecto->categoria }}</td>
                         <td>{{ $proyecto->autor }}</td>
                         <td>{{ $proyecto->titulo }}</td>
                         <td>{{ $proyecto->contenido }}</td>
-                        <td class="text-center">{{ $proyecto->unidad }}</td>
-                        <td class="text-center">{{ $proyecto->categoria }}</td>
                         <td class="text-center">{{ $proyecto->estado }}</td>
                         <td class="text-center">
                             <div class="row">
