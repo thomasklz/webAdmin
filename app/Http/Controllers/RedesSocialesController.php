@@ -34,8 +34,8 @@ class RedesSocialesController extends Controller
     					]);
 
       $redesSociales = new RedesSociales;
-      $redesSociales->redSociales = $request->redSocial;
-      $redesSociales->detalle = $request->link;
+      $redesSociales->redSocial = $request->redSocial;
+      $redesSociales->link = $request->link;
       $redesSociales->estado = 1 ;
       $redesSociales->save();
 
