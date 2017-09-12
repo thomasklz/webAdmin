@@ -6,6 +6,7 @@
 @section('css-top')
 <link rel="stylesheet" href=" {{ asset('css/wizar/form-elements.css') }}" rel="stylesheet" type="text/css" >
 <link rel="stylesheet" href=" {{ asset('css/wizar/style.css') }}" rel="stylesheet" type="text/css" >
+<link rel="stylesheet" href=" {{ asset('css/adminlte/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" >
 <style type="text/css">
  
 .fila-base{ display: none; } /* fila base oculta */
@@ -73,7 +74,13 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" style="padding-top:7px;">Contenido</label>
                 <div class="col-sm-10" style="padding-top:7px;">
-                  <textarea class="form-control" rows="3" name="contenido"></textarea>
+                  <div class="box">
+                    <div class="box-body pad">
+                      <textarea class="textarea form-control" name="contenido"
+                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    
+                    </div>
+                  </div>
                 </div>
               </div>
               <!-- radio -->
@@ -174,10 +181,16 @@
     </div>
 @endsection
 @section('scripts-button')
+<script src=" {{ asset('js/adminlte/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script src=" {{ asset('js/wizar/jquery.backstretch.min.js') }}"></script>
 <script src=" {{ asset('js/wizar/retina-1.1.0.min.js') }}"></script>
 <script src=" {{ asset('js/wizar/scripts.js') }}"></script>
 <script src=" {{ asset('js/scripts/registerPhoto.js') }}"></script>
+<script>
+  $(function () {
+    $('.textarea').wysihtml5()
+  })
+</script>
 @endsection
 <!-- Left side column. contains the logo and sidebar -->
 
