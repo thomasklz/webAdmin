@@ -74,9 +74,8 @@ class NoticiaController extends Controller
         }
         return redirect('noticia');
     }
-
-    public function registrarFotos()
-    {
-        return view('adminlte::noticia.fotos');
+    public function create()
+    {            
+       return view('adminlte::noticia.list');
     }
 }

@@ -38,17 +38,6 @@ class CategoriaController extends Controller
 	    alertify()->success('Categoria registrada correctamente','ok')->delay(3000)->position('bottom right');
 	    return redirect('categoria');
     }
- 
-   /* public function show(Request $request, $id)
-    {
-    	if ($request->ajax()){
-	    	$result = DB::table('Categorias')
-	    				 ->where('id',$id)
-	                     ->first();
-	        return response()->json($result);
-        }
-	}
-    */
     public function destroy(Request $request, $id)
     {
     	if ($request->ajax()){

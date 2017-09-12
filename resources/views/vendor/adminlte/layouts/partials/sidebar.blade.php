@@ -43,7 +43,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('categoria.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
                     <li><a href="{{ route('noticia.index') }}"><i class='fa fa-plus-circle'></i>Nueva</a></li>
-                    <li><a href="{{ url('noticia.show') }}"><i class='fa fa-navicon'></i>Listado</a></li>
+                    <li><a href="{{ route('noticia.create') }}"><i class='fa fa-navicon'></i>Listado</a></li>
                 </ul>
             </li>
             <li class="treeview">
