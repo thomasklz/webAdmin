@@ -91,4 +91,17 @@ class NoticiaController extends Controller
             ->get();  
        return view('adminlte::noticia.list', compact('listNoticias','unidadAcademicas','categorias'));
     }
+     public function show(Request $request, $id)
+    {    
+        if ($request->ajax()){
+            $noticia = DB::table('Noticias')
+                ->join('categorias', 'Noticias.idCategoria', '=', 'categorias.id')
+                ->join('unidadnoticia', 'Noticias.id', '=', 'unidadnoticia.idNoticias')
+                ->join('unidadacademica', 'unidadnoticia.idUnidadacademica', '=', 'unidadacademica.id')
+                ->select('Noticias.*','categorias.categoria', 'unidadacademica.nombre as unidad')
+                ->where('Noticias.id','=',$id)
+                ->first();  
+            return response()->json([$noticia]);
+        }  
+    }
 }

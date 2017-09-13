@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" style="padding-top:7px;"><b>Publicada</b></label>
                     <div class="col-md-4" style="padding-top:7px;">
-                        <select class="form-control" name="publicar" id="publicar">
+                        <select class="form-control" name="VMpublicar" id="publicar">
                             <option value="1">Si</option>
                             <option value="0">No</option>
                         </select>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" style="padding-top:7px;"><b>Micrositio</b></label>
                     <div class="col-md-4" style="padding-top:7px;">
-                        <select class="form-control" name="unidad" id="idUnidadAcademica">
+                        <select class="form-control" name="VMunidad" id="idUnidadAcademica">
                             @foreach($unidadAcademicas as $unidadAcademica )
                             <option ids="{{ $unidadAcademica->nombre }}" value="{{ $unidadAcademica->id }}">{{ $unidadAcademica->nombre }}</option>
                             @endforeach
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" style="padding-top:7px;"><b>Categoría</b></label>
                     <div class="col-md-4" style="padding-top:7px;">
-                        <select class="form-control" name="categoria" id="idCategoria" >
+                        <select class="form-control" name="Vmcategoria" id="idCategoria" >
                             @foreach($categorias as $categoria )
                             <option ids="{{ $categoria->categoria }}" value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                             @endforeach
@@ -55,7 +55,7 @@
                <div class="form-group">
                 <label class="col-sm-2 control-label" style="padding-top:7px;"><b>Resumen</b></label>
                 <div class="col-sm-10" style="padding-top:7px;">
-                  <textarea class="form-control" rows="3" name="resumen"></textarea>
+                  <textarea class="form-control" rows="3" id="VMresumen"></textarea>
                 </div>
               </div>
               <div class="form-group">
@@ -63,7 +63,7 @@
                 <div class="col-sm-10" style="padding-top:7px;">
                   <div class="box">
                     <div class="box-body pad">
-                        <textarea class="textarea form-control" name="contenido"
+                        <textarea name="" class="form-control" id="VMcontenido"
                                 style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                         </textarea>
                     </div>

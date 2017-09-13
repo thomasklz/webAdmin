@@ -42,11 +42,13 @@
                   <td class="text-center">{{ $listNoticia->fechapublicacion }}</td>
                   <td class="text-center">
                     <div class="row">
-                      <div class="col-md-6 text-right ">
-                      <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
+                      <div class="col-md-6 text-left">
+                        {!! Form::open(['route' => ['noticia.show', $listNoticia->id], 'method'=>'GET']) !!}
+                        <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
+                        {!! Form::close() !!}
                       </div>
                       <div class="col-md-6 text-left ">
-                      <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
+                      <a href="#" data-foto="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
                       </div>
                     </div>
                   </td>
@@ -62,13 +64,14 @@
     @include('adminlte::modal.modalNoticia')
 @endsection
 @section('scripts-button')
-<script src=" {{ asset('js/scripts/ajaxScript.js') }}"></script>
+<script src=" {{ asset('js/scripts/ajaxNoticia.js') }}"></script>
 <script src=" {{ asset('js/adminlte/bootstrap-datetimepicker.min.js') }}"></script>
 <script src=" {{ asset('js/adminlte/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script type="text/javascript">
     $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
     $(function () {
-    $('.textarea').wysihtml5()
+    //$('.textarea').wysihtml5()
+    $('textarea[name=textarea]').wysihtml5();
   })
 </script>
 @endsection
