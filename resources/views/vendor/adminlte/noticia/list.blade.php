@@ -3,6 +3,10 @@
 @section('htmlheader_title')
     {{ trans('adminlte_lang::message.home') }}
 @endsection
+@section('css-top')
+  <link href="{{ asset('/css/adminlte/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href=" {{ asset('css/adminlte/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" >
+@endsection
 @section('main-content')
     <div class="container-fluid spark-screen">
           <div class="box">
@@ -14,25 +18,35 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th class="text-center">#Categoria</th>
-                  <th>Categoria</th>
+                  <th class="text-center">#</th>
+                  <th class="text-center">Micrositio</th>
+                  <th class="text-center">Categoría</th>
+                  <th>Título</th>
+                  <th class="text-center">Publicar</th>
+                  <th class="text-center">F_Publicación</th>
                   <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($categorias as $categoria)
+                @foreach($listNoticias as $listNoticia)
                 <tr>
-                  <td class="text-center">{{ $categoria->id }}</td>
-                  <td>{{ $categoria->categoria }}</td>
+                  <td class="text-center">{{ $listNoticia->id }}</td>
+                  <td class="text-center">{{ $listNoticia->unidad }}</td>
+                  <td class="text-center">{{ $listNoticia->categoria }}</td>
+                  <td>{{ $listNoticia->titulo }}</td>
+                  @if ( $listNoticia->publicar === 1)
+                  <td class="text-center">Si</td>
+                  @else
+                  <td class="text-center">No</td>
+                  @endif
+                  <td class="text-center">{{ $listNoticia->fechapublicacion }}</td>
                   <td class="text-center">
                     <div class="row">
                       <div class="col-md-6 text-right ">
-                      <a href="#" data-route="{{route('categoria.show', $categoria->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
+                      <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
                       </div>
-                      <div class="col-md-6 text-left">
-                      {!! Form::open(['route' => ['categoria.destroy', $categoria->id], 'method'=>'DELETE']) !!}
-                        <a href="#" class="bnt-delete"><span class="text-green icon"><i class='fa fa-trash-o'></i></span></a>
-                      {!! Form::close() !!}
+                      <div class="col-md-6 text-left ">
+                      <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
                       </div>
                     </div>
                   </td>
@@ -45,10 +59,18 @@
           </div>
           <!-- /.box -->
     </div>
-    @include('adminlte::modal.modalCategoria')
+    @include('adminlte::modal.modalNoticia')
 @endsection
 @section('scripts-button')
 <script src=" {{ asset('js/scripts/ajaxScript.js') }}"></script>
+<script src=" {{ asset('js/adminlte/bootstrap-datetimepicker.min.js') }}"></script>
+<script src=" {{ asset('js/adminlte/bootstrap3-wysihtml5.all.min.js') }}"></script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $(function () {
+    $('.textarea').wysihtml5()
+  })
+</script>
 @endsection
 <!-- Left side column. contains the logo and sidebar -->
 

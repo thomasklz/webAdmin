@@ -76,6 +76,19 @@ class NoticiaController extends Controller
     }
     public function create()
     {            
-       return view('adminlte::noticia.list');
+        $categorias = DB::table('Categorias')
+                     ->where('estado','=',1)
+                     ->get();
+        $unidadAcademicas = DB::table('UnidadAcademica')
+                     ->where('estado','=',1)
+                     ->get();
+        $listNoticias = DB::table('Noticias')
+            ->join('categorias', 'Noticias.idCategoria', '=', 'categorias.id')
+            ->join('unidadnoticia', 'Noticias.id', '=', 'unidadnoticia.idNoticias')
+            ->join('unidadacademica', 'unidadnoticia.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('Noticias.id','Noticias.titulo','Noticias.publicar','Noticias.fechapublicacion','categorias.categoria', 'unidadacademica.nombre as unidad')
+            ->take(20)
+            ->get();  
+       return view('adminlte::noticia.list', compact('listNoticias','unidadAcademicas','categorias'));
     }
 }
