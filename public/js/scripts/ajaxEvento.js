@@ -36,7 +36,7 @@ $(document).ready(function() {
             }
         );
     });
-    //Update  proyecto
+    //Update  evento
     $('[data-update]').click(function(e) {
         e.preventDefault();
         var form = $(this).parents('form');

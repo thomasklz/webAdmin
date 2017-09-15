@@ -42,13 +42,15 @@
                   <td class="text-center">{{ $listNoticia->fechapublicacion }}</td>
                   <td class="text-center">
                     <div class="row">
-                      <div class="col-md-6 text-left">
+                      <div class="col-md-6 text-right">
                         {!! Form::open(['route' => ['noticia.show', $listNoticia->id], 'method'=>'GET']) !!}
                         <a href="#" data-route="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-edit'></i> </span></a>
                         {!! Form::close() !!}
                       </div>
                       <div class="col-md-6 text-left ">
-                      <a href="#" data-foto="{{route('noticia.show', $listNoticia->id)}}" data-toggle="modal" data-target="#myModal"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
+                       {!! Form::open(['url' => ['noticia/fotos', $listNoticia->id], 'method'=>'GET']) !!}
+                      <a href="#" data-foto="foto" data-toggle="modal" data-target="#myModalFoto"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
+                       {!! Form::close() !!}
                       </div>
                     </div>
                   </td>
@@ -62,6 +64,7 @@
           <!-- /.box -->
     </div>
     @include('adminlte::modal.modalNoticia')
+    @include('adminlte::modal.modalNoticiaFotos')
 @endsection
 @section('scripts-button')
 <script src=" {{ asset('js/scripts/ajaxNoticia.js') }}"></script>

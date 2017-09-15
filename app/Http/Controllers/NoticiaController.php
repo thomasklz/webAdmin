@@ -91,7 +91,7 @@ class NoticiaController extends Controller
             ->get();  
        return view('adminlte::noticia.list', compact('listNoticias','unidadAcademicas','categorias'));
     }
-     public function show(Request $request, $id)
+    public function show(Request $request, $id)
     {    
         if ($request->ajax()){
             $noticia = DB::table('Noticias')
@@ -103,5 +103,36 @@ class NoticiaController extends Controller
                 ->first();  
             return response()->json([$noticia]);
         }  
+    }
+    public function UpdatePhoto(Request $request, $id)
+    {    
+        if ($request->ajax()){
+            $noticiaFotos = DB::table('noticiasfotos')
+                ->select('noticiasfotos.id','noticiasfotos.fotos')
+                ->where('idNoticias','=',$id)
+                ->get();  
+            return response()->json([$noticiaFotos]);
+        }  
+    }
+    public function update(Request $request, $id)
+    {
+        if ($request->ajax()){
+            $noticia = DB::table('Noticias')
+                     ->where('id', $id)
+                     ->update([
+                          'titulo' => $request->VMtitulo,
+                          'resumen' => $request->VMresumen,
+                          'contenido' => $request->VMcontenido,
+                          'publicar' => $request->VMpublicar,
+                          'fechaPublicacion' => $request->VMfecha,
+                          'idCategoria' => $request->VMcategoria
+                         ]);
+            $Unidadeventos = DB::table('UnidadNoticia')
+                     ->where('idNoticias', $id)
+                     ->update([
+                          'idUnidadacademica' => $request->VMunidad
+                         ]);                
+            return response()->json(['mensaje'=> 'Noticia actualizada']);
+        }
     }
 }
