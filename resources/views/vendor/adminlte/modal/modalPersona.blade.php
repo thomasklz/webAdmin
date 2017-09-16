@@ -15,41 +15,58 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Micrositio</label>
                     <div class="col-md-10">
-                        <select class="form-control" name="idUnidadAcademica" id="idUnidadAcademica">
+                        <select class="form-control" name="VMunidad" id="idUnidadAcademica">
                             @foreach($unidadAcademicas as $unidadAcademica )
                             <option ids="{{ $unidadAcademica->nombre }}" value="{{ $unidadAcademica->id }}">{{ $unidadAcademica->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-2" style="padding-top:7px;">Autor</label>
+               <div class="form-group">
+                    <label class="col-md-2" style="padding-top:7px;">Nombre</label>
                     <div class="col-md-10" style="padding-top:7px;">
-                        <input type="text" name="VMautor" value="{{ old('autor') }}" class="form-control">
+                        <input type="text" name="VMnombre" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2" style="padding-top:7px;">Título</label>
+                    <label class="col-md-2" style="padding-top:7px;">Apellido</label>
                     <div class="col-md-10" style="padding-top:7px;">
-                        <input type="text" name="VMtitulo" value="{{ old('titulo') }}" class="form-control">
+                        <input type="text" name="VMapellido" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" style="padding-top:7px;">Contenido</label>
-                    <div class="col-sm-10" style="padding-top:7px;">
-                        <textarea class="form-control" cols="100" rows="5" id="contenido" name="VMcontenido"></textarea>
+                    <label class="col-md-2" style="padding-top:7px;">Cédula</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <input type="text" maxlength="10" name="VMcedula" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                  <label id="select_file"class="col-md-2" style="padding-top:7px;">Subir foto: </label>
-                  <div class="col-md-10" style="padding-top:7px;">
-                    <input type="file" id="VMfoto" name="foto" class="form-control">
-                  </div>  
+                    <label class="col-md-2" style="padding-top:7px;">Cargo</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <input type="text" name="VMcargo" class="form-control">
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label class="col-md-2" style="padding-top:7px;">Teléfono</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <input type="text"  maxlength="10" name="VMtelefono" class="form-control">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-md-2" style="padding-top:7px;">Email</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <input type="email" name="VMemail" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2" style="padding-top:7px;">Foto: </label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <input type="file" name="foto" class="form-control">
+                    </div>
+                </div>
             <div class="modal-footer">
                 <div class="col-sm-12" style="padding-top:7px;">
-                    <button type="submit" class="btn btn-primary bnt-edit" data-dismiss="modal" data-update="{{url ('categoria.update')}}">Editar</button>
+                    <button type="submit" class="btn btn-primary bnt-edit" data-dismiss="modal" data-update="{{url ('persona.update')}}">Editar</button>
                     <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

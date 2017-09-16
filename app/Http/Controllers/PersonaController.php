@@ -63,4 +63,45 @@ class PersonaController extends Controller
       alertify()->success('Persona registrada correctamente')->delay(3000)->position('bottom right');
       return redirect('persona');
     }
+     public function destroy(Request $request, $id) 
+    {
+      if ($request->ajax()){
+          $persona = DB::table('Persona')
+             ->where('id', $id)
+                     ->update(['estado' => 0]);
+      return response()->json(['mensaje'=> 'Persona eliminada']);
+      }
+    }
+    public function update(Request $request, $id)
+    {
+        if ($request->ajax()){
+            $file = $request->file('foto');
+            if (empty($file)){
+              $fileName=$request->VMfoto;
+            }else{
+              $nombre = $file->getClientMimeType();
+              $tipoImagen = str_replace('image/', '.',$nombre);
+              $fileName = uniqid() .$tipoImagen ;
+              $path = public_path() . '/img/persona';
+              $file->move($path, $fileName);
+            }
+            $persona = DB::table('Persona')
+                     ->where('id', $id)
+                     ->update([
+                          	 'nombre' =>  $request->VMnombre,
+	    					 'apellido' =>  $request->VMapellido,
+	    					 'cedula' =>  $request->VMcedula,
+	    					 'cargo' =>  $request->VMcargo,
+	    					 'telefono' =>  $request->VMtelefono,
+	    					 'correo' =>  $request->VMemail,
+	    					 'foto' =>  $fileName
+                         ]);
+            $unidad = DB::table('personaunidad')
+                     ->where('idPersona', $id)
+                     ->update([
+                          'idUnidadacademica' => $request->VMunidad
+                         ]);                
+            return response()->json(['mensaje'=> 'Persona actualizada']);
+        }
+    }
 }

@@ -122,6 +122,6 @@
     <!-- /.box -->
 </div>
 @include('adminlte::modal.modalPersona') @endsection @section('scripts-button')
-
+<script src=" {{ asset('js/scripts/ajaxPersona.js') }}"></script>
 @endsection
 <!-- Left side column. contains the logo and sidebar -->
