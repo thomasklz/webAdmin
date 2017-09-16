@@ -21,7 +21,7 @@ class CreatePersonaTable extends Migration
             $table->string('cargo',100);
             $table->string('telefono',10);
             $table->string('correo',40);
-            $table->string('foto',15);
+            $table->string('foto',30);
             $table->boolean('estado');
         });
     }

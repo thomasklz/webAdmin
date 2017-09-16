@@ -20,8 +20,7 @@ class CreatePersonaunidadTable extends Migration
             $table->foreign('idPersona')->references('id')->on('persona'); 
             $table->integer('idUnidadacademica')->unsigned();
             $table->index('idUnidadacademica');
-            $table->foreign('idUnidadacademica')->references('id')->on('unidadAcademica');   
-            $table->boolean('estado');  
+            $table->foreign('idUnidadacademica')->references('id')->on('unidadAcademica');     
         });
     }
 
