@@ -67,6 +67,13 @@
                 </ul>
             </li>
             <li class="treeview">
+                <a href="#"><i class='fa fa-book'></i> <span>Documento</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('categoria-documento.index') }}"><i class='fa fa-sitemap'></i>Categoría</a></li>
+                    <li><a href="{{ route('documento.index') }}"><i class='fa fa-plus-circle'></i>Nuevo</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
                 <a href="#"><i class='fa  fa-google-wallet'></i> <span>Slider</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('slider.index') }}"><i class='fa fa-plus-circle'></i> Nuevo</a></li>
