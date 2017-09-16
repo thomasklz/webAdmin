@@ -49,7 +49,7 @@
                       </div>
                       <div class="col-md-6 text-left ">
                        {!! Form::open(['url' => ['noticia/fotos', $listNoticia->id], 'method'=>'GET']) !!}
-                      <a href="#" data-foto="foto" data-toggle="modal" data-target="#myModalFoto"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
+                      <a href="#" data-foto="{{$listNoticia->id}}" data-toggle="modal" data-target="#myModalFoto"><span class="text-green icon"><i class='fa fa-photo'></i> Fotos</span></a>
                        {!! Form::close() !!}
                       </div>
                     </div>

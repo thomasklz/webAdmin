@@ -9,7 +9,7 @@
     <div id="app" v-cloak>
         <div class="login-box">
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}"><b>Panel de Sesión</b></a>
             </div><!-- /.login-logo -->
 
         @if (count($errors) > 0)
@@ -33,16 +33,6 @@
     </div>
     </div>
     @include('adminlte::layouts.partials.scripts_auth')
-
-    <script>
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
-    </script>
 </body>
 
 @endsection

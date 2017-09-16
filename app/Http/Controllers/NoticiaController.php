@@ -104,7 +104,7 @@ class NoticiaController extends Controller
             return response()->json([$noticia]);
         }  
     }
-    public function UpdatePhoto(Request $request, $id)
+    public function ShowPhoto(Request $request, $id)
     {    
         if ($request->ajax()){
             $noticiaFotos = DB::table('noticiasfotos')
@@ -132,6 +132,29 @@ class NoticiaController extends Controller
                      ->update([
                           'idUnidadacademica' => $request->VMunidad
                          ]);                
+            return response()->json(['mensaje'=> 'Noticia actualizada']);
+        }
+    }
+    public function UpdatePhoto(Request $request, $id)
+    {
+        if ($request->ajax()){
+            for ($i=1; $i <=5 ; $i++) { 
+                if (!empty($request->file("foto".''.$i.''))){
+                    $file=$request->file("foto".''.$i.'');
+                    $nombre = $file->getClientMimeType();
+                    $tipoImagen = str_replace('image/', '.',$nombre);
+                    $fileName = uniqid() .$tipoImagen ;
+                    $path = public_path() . '/img/noticia';
+                    $file->move($path, $fileName);
+                    $idF= $_POST['VMid'.$i];
+                    $fotos = DB::table('noticiasfotos')
+                         ->where('idNoticias', $id)
+                         ->where('id', $idF)
+                         ->update([
+                              'fotos' => $fileName,
+                             ]);
+                }
+            }               
             return response()->json(['mensaje'=> 'Noticia actualizada']);
         }
     }
