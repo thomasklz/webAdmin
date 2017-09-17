@@ -7,6 +7,6 @@
 
 @section('main-content')
 	<div class="container-fluid spark-screen">
-		<h1>Principal</h1>
+		<h1>Buscar noticias:</h1>
 	</div>
 @endsection

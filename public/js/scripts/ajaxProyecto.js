@@ -45,7 +45,6 @@ $(document).ready(function() {
         var ruta = $('input[name=ruta]').val();
         var url = ruta + id;
         var token = $('input[name=_token]').val();
-        debugger
         $.ajax({
             url: url,
             headers: { 'X-CSRF-TOKEN': token },
@@ -58,7 +57,6 @@ $(document).ready(function() {
             alertify.success(data.mensaje);
             location.reload();
         }).fail(function(jqXHR, textStatus) {
-            debugger
             alertify.error('Error al actualizar');
         });
     });

@@ -8,6 +8,7 @@ use App\CategoriaDocumento;
 use App\Documento;
 use App\UnidadDocumento;
 use App\UnidadAcademica;
+use Response;
 
 class DocumentoController extends Controller
 {
@@ -39,9 +40,7 @@ class DocumentoController extends Controller
     					 'nombre' => 'required',
     					]);
       $file = $request->file('nombre');
-      $nombre = $file->getClientMimeType();
-      $tipoImagen = str_replace('image/', '.',$nombre);
-      $fileName = uniqid() .$tipoImagen ;
+      $fileName = $file->getClientOriginalName();
       $path = public_path() . '/documentos';
       $file->move($path, $fileName);
 
@@ -72,10 +71,18 @@ class DocumentoController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
+            $file = $request->file('VMnombre');
+            if (empty($file)){
+                $fileName = $request->NameDocumento;
+            }else{             
+                $fileName = $file->getClientOriginalName();
+                $path = public_path() . '/documentos';
+                $file->move($path, $fileName);
+            }
             $documento = DB::table('Documento')
                      ->where('id', $id)
                      ->update([
-                          'nombre' => $request->VMnombre,
+                          'nombre' => $fileName,
                           'idCategoriadocumento' => $request->VMcategoria
                          ]);
             $unidad = DB::table('UnidadDocumento')

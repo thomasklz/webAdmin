@@ -3,13 +3,14 @@
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
-           {!! Form::open(['method'=>'PUT']) !!}
+           {!! Form::open(['id'=>'uploadimage', 'method'=>'PUT', 'files'=>true]) !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Editar Documento</h4>
             </div>
             <div class="modal-body" style="background-color: #F6F6F5">
                 <input type="hidden" name="idDocumento">
+                <input type="hidden" name="NameDocumento">
                 <input type="hidden" name="ruta" value="documento/">
                 <div class="form-group">
                     <label class="col-md-2 control-label">Micrositio</label>
@@ -32,15 +33,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2" style="padding-top:7px;">Nombre</label>
+                    <label class="col-md-2" style="padding-top:7px;">Nombre documento</label>
                     <div class="col-md-10" style="padding-top:7px;">
-                        <input type="text" name="VMnombre" class="form-control">
+                        <input type="file" name="VMnombre" class="form-control">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="col-sm-12" style="padding-top:7px;">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" data-update="{{url ('documento.update')}}">Editar</button>
+                    <button type="submit" class="btn btn-primary bnt-edit" data-dismiss="modal" data-updates="ok">Editar</button>
                     <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

@@ -8,8 +8,8 @@ $(document).ready(function() {
         var categoria = $(this).parents("tr").find("td").eq(2).html();
         var nombre = $(this).parents("tr").find("td").eq(3).html();
         $('input[name=idDocumento]').val(id);
-        $('input[name=VMnombre]').val(nombre);
-         $('#idCategoriaproyecto option[ids="' + categoria + '"]').prop("selected", true);
+        $('input[name=NameDocumento]').val(nombre);
+        $('#idCategoriaproyecto option[ids="' + categoria + '"]').prop("selected", true);
         $('#idUnidadAcademica option[ids="' + unidad + '"]').prop("selected", true);
     });
     //Delete proyecto
@@ -30,20 +30,21 @@ $(document).ready(function() {
         );
     });
     //Update  proyecto
-    $('[data-update]').click(function(e) {
+    $('[data-updates]').click(function(e) {
         e.preventDefault();
-        var form = $(this).parents('form');
-        var ruta = $('input[name=ruta]').val();
+        var formData = new FormData($('#uploadimage')[0]); 
         var id = $('input[name=idDocumento]').val();
+        var ruta = $('input[name=ruta]').val();
         var url = ruta + id;
         var token = $('input[name=_token]').val();
-        debugger
         $.ajax({
-            data: form.serialize(),
-            type: "PUT",
-            dataType: "json",
             url: url,
             headers: { 'X-CSRF-TOKEN': token },
+            type: "POST",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: formData
         }).done(function(data, textStatus, jqXHR) {
             alertify.success(data.mensaje);
             location.reload();
