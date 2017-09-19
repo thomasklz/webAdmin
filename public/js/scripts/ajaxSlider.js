@@ -36,6 +36,7 @@ $(document).ready(function() {
     $('[data-update]').click(function(e) {
         e.preventDefault();
         var formData = new FormData($('#uploadimage')[0]);
+        debugger
         var id = $('input[name=idSlider]').val();
         var ruta = $('input[name=ruta]').val();
         var url = ruta + id;
