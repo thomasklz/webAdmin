@@ -10,6 +10,6 @@ class InglesController extends Controller
 {
     public function index()
     {
-        return view('adminlte::plantillaingles.partial.home');
+        return view('adminlte::plantilla.home');
     }
 }
