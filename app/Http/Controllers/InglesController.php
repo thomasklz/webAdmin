@@ -67,6 +67,7 @@ class InglesController extends Controller
         $categoriasproyecto = DB::table('categoriaproyecto')
             ->select('categoriaproyecto.*')
             ->where('categoriaproyecto.estado','=',1)
+
             ->get(); 
         
         $proyectos = DB::table('proyecto')
@@ -76,8 +77,18 @@ class InglesController extends Controller
             ->join('unidadacademica', 'unidadproyecto.idUnidadacademica', '=', 'unidadacademica.id')
             ->select('proyecto.foto','proyecto.fecha', 'proyecto.autor',  'categoriaproyecto.categoria', 'estadoproyecto.nombre as estado')
             ->where('proyecto.estado','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
             ->get(); 
-            
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos'));
+
+        $documentos = DB::table('documento')
+            ->join('categoriadocumento', 'documento.idCategoriadocumento', '=', 'categoriadocumento.id')
+            ->join('unidaddocumento', 'documento.id', '=', 'unidaddocumento.idDocumento')
+            ->join('unidadacademica', 'unidaddocumento.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('documento.nombre', 'documento.fecha','categoriadocumento.categoria')
+            ->where('documento.estado','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
+            ->get(); 
+
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos','documentos'));
     }
 }
