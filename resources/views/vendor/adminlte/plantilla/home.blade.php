@@ -15,7 +15,7 @@
         @include('adminlte::plantilla.partial.slidertop')
         <!-- /SLIDE TOP -->
         <!-- TOP BAR -->
-        @include('adminlte::plantilla.partial.slidertop')
+        @include('adminlte::plantilla.partial.topbar')
         <!-- /TOP BAR -->
         <!-- HEADER MENU -->
         @include('adminlte::plantilla.partial.headermenu')

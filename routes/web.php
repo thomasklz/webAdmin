@@ -43,4 +43,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Rutas Plantillas
-Route::get('micrositio/ingles', 'InglesController@index');
+Route::get('micrositio/{micrositio}', 'InglesController@index');

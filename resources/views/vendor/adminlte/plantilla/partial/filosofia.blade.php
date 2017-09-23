@@ -17,30 +17,16 @@
             <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row text-center">
+          @foreach($filosofias as $filosofia)
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <figure class="margin-bottom-20">
-                    <img class="img-responsive" src="{{asset('assets/images/demo/mockups/800x553/17-min.jpg')}}" alt="service" />
+                    <img class="img-responsive" src='{{asset("img/filosofia/$filosofia->foto")}}' alt="service" />
                 </figure>
-                <h4 class="nomargin-bottom">NUESTRA MISIÓN</h4>
+                <h4 class="nomargin-bottom">{{$filosofia->titulo}}</h4>
                 <hr>
-                <p class="text-muted size-14">Formación de Profesionales íntegros que conjuguen ciencia, tecnología y valores en su accionar, comprometidos con la comunidad en el manejo adecuado de programas y herramientas computacionales de última generación.</p>
+                <p class="text-muted size-14">{{$filosofia->contenido}}</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <figure class="margin-bottom-20">
-                    <img class="img-responsive" src="{{asset('assets/images/demo/mockups/800x553/18-min.jpg')}}" alt="service" />
-                </figure>
-                <h4 class="nomargin-bottom">NUESTRA VISIÓN</h4>
-                <hr>
-                <p class="text-muted size-14">Ser referentes en la formación de profesionales de prestigio en el desarrollo de aplicaciones informática y soluciones de hardware.</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <figure class="margin-bottom-20">
-                    <img class="img-responsive" src="{{asset('assets/images/demo/mockups/800x553/3-min.jpg')}}" alt="service" />
-                </figure>
-                <h4 class="nomargin-bottom">NUESTRO OBJETIVO</h4>
-                <hr>
-                <p class="text-muted size-14">El profesional en informática se forma para solucionar problemas de software-hardware y dirigir aspectos inherentes a esta actividad en cualquier empresa e institución con espíritu crítico y humanista.</p>
-            </div>
+        @endforeach
         </div>
     </div>
 </section>
