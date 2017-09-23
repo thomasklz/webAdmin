@@ -40,8 +40,21 @@ class InglesController extends Controller
             ->select('eventos.*')
             ->where('eventos.estado','=',1)
             ->where('unidadacademica.nombre','=',$micrositio)
+            ->orderBy('eventos.fecha','asc')
             ->get();  
 
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos'));
+        $noticias = DB::table('noticias')
+            ->join('categorias', 'noticias.idCategoria', '=', 'categorias.id')
+            ->join('noticiasfotos', 'noticias.id', '=', 'noticiasfotos.idNoticias')
+            ->join('unidadnoticia', 'noticias.id', '=', 'unidadnoticia.idNoticias')
+            ->join('unidadacademica', 'unidadnoticia.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('noticias.id','noticias.titulo', 'noticias.resumen','noticias.fechaPublicacion','noticiasfotos.fotos as foto' )
+            ->where('noticias.publicar','=',1)
+            ->where('noticiasfotos.publicar','=',1)
+            ->where('noticiasfotos.principal','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
+            ->orderBy('noticias.fechaPublicacion','asc')
+            ->get();
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias'));
     }
 }

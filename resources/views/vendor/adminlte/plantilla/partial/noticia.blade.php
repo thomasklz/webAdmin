@@ -8,24 +8,8 @@
             <i class="fa fa-chevron-down"></i>
         </div>
         <div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"4", "autoPlay": 4000, "navigation": true, "pagination": false}'>
-            <div class="item-box">
-                <figure>
-                    <a class="item-hover" href="magazine-single.html">
-                        <span class="overlay color2"></span>
-                        <span class="inner">
-                            <span class="block fa fa-plus fsize20"></span>
-                            <strong>LEER</strong> ARTICULO
-                        </span>
-                    </a>
-                    <img alt="" class="img-responsive" src="{{asset('assets/images/demo/magazine/thumbs/thumb_1-min.jpg')}}" width="263" height="147" />
-                </figure>
-                <div class="item-box-desc">
-                    <h4>Chinese New Year by the numbers</h4>
-                    <small>29 June 2014, 9:55</small>
-                    <p>Billions of people travel in China during Lunar New Year. Check out the mind-boggling figures.</p>
-                </div>
-            </div>
             <!-- article item -->
+            @foreach($noticias as $noticia)
             <div class="item-box">
                 <figure>
                     <a class="item-hover" href="magazine-single.html">
@@ -35,71 +19,15 @@
                             <strong>LEER</strong> ARTICULO
                         </span>
                     </a>
-                    <img alt="" class="img-responsive" src="{{asset('assets/images/demo/magazine/thumbs/thumb_2-min.jpg')}}" width="263" height="147" />
+                    <img alt="" class="img-responsive" src='{{asset("img/noticia/$noticia->foto")}}' width="263" height="147" />
                 </figure>
                 <div class="item-box-desc">
-                    <h4>Chinese New Year by the numbers</h4>
-                    <small>29 June 2014, 9:55</small>
-                    <p>Billions of people travel in China during Lunar New Year. Check out the mind-boggling figures.</p>
+                    <h4>{{$noticia->titulo}}</h4>
+                    <small>{{$noticia->fechaPublicacion}}</small>
+                    <p>{{$noticia->resumen}}</p>
                 </div>
             </div>
-            <!-- /article item -->
-            <!-- article item -->
-            <div class="item-box">
-                <figure>
-                    <a class="item-hover" href="magazine-single.html">
-                        <span class="overlay color2"></span>
-                        <span class="inner">
-                            <span class="block fa fa-plus fsize20"></span>
-                            <strong>LEER</strong> ARTICULO
-                        </span>
-                    </a>
-                    <img alt="" class="img-responsive" src="{{asset('assets/images/demo/magazine/thumbs/thumb_3-min.jpg')}}" width="263" height="147" />
-                </figure>
-                <div class="item-box-desc">
-                    <h4>Chinese New Year by the numbers</h4>
-                    <small>29 June 2014, 9:55</small>
-                    <p>Billions of people travel in China during Lunar New Year. Check out the mind-boggling figures.</p>
-                </div>
-            </div>
-            <!-- /article item -->
-            <!-- article item -->
-            <div class="item-box">
-                <figure>
-                    <a class="item-hover" href="magazine-single.html">
-                        <span class="overlay color2"></span>
-                        <span class="inner">
-                            <span class="block fa fa-plus fsize20"></span>
-                            <strong>LEER</strong> ARTICULO
-                        </span>
-                    </a>
-                    <img alt="" class="img-responsive" src="{{asset('assets/images/demo/magazine/thumbs/thumb_2-min.jpg')}}" width="263" height="147" />
-                </figure>
-                <div class="item-box-desc">
-                    <h4>Chinese New Year by the numbers</h4>
-                    <small>29 June 2014, 9:55</small>
-                    <p>Billions of people travel in China during Lunar New Year. Check out the mind-boggling figures.</p>
-                </div>
-            </div>
-            <!-- /article item -->
-            <!-- article item -->
-            <div class="item-box">
-                <figure>
-                    <a class="item-hover" href="magazine-single.html">
-                        <span class="overlay color2"></span>
-                        <span class="inner">
-                            <span class="block fa fa-plus fsize20"></span>
-                            <strong>LEER</strong> ARTICULO
-                        </span>
-                    </a>
-                    <img alt="" class="img-responsive" src="{{asset('assets/images/demo/magazine/thumbs/thumb_3-min.jpg')}}" width="263" height="147" />
-                </figure>
-                <div class="item-box-desc">
-                    <h4>Chinese New Year by the numbers</h4>
-                    <small>29 June 2014, 9:55</small>
-                    <p>Billions of people travel in China during Lunar New Year. Check out the mind-boggling figures.</p>
-                </div>
-            </div>
+            @endforeach
             <!-- /article item -->
         </div>
     </div>
