@@ -13,7 +13,7 @@ $(document).ready(function() {
         $('input[name=VMtitulo]').val(titulo);
         $('input[name=VMcontenido]').val(conteido);
         $('input[name=VMenlace]').val(enlace);
-        $('input[name=VMfoto]').val(foto);
+        $('input[name=VMicono]').val(foto);
         $('#idUnidadAcademica option[ids="' + unidad + '"]').prop("selected", true);
     });
     //Delete proyecto

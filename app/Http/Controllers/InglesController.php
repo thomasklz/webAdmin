@@ -26,6 +26,16 @@ class InglesController extends Controller
             ->where('unidadacademica.nombre','=',$micrositio)
             ->get();           
 
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias'));
+        $servicios = DB::table('servicio')
+            ->join('unidadservicio', 'servicio.id', '=', 'unidadservicio.idServicio')
+            ->join('unidadacademica', 'unidadservicio.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('servicio.*')
+            ->where('servicio.estado','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
+            ->get();  
+
+
+
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios'));
     }
 }

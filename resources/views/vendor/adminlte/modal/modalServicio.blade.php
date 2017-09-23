@@ -41,9 +41,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                  <label id="select_file"class="col-md-2" style="padding-top:7px;">Subir foto: </label>
+                  <label id="select_file"class="col-md-2" style="padding-top:7px;">Icono: </label>
                   <div class="col-md-10" style="padding-top:7px;">
-                    <input type="file" id="VMfoto" name="foto" class="form-control">
+                    <input type="text" name="VMicono" class="form-control">
                   </div>  
                 </div>
             </div>

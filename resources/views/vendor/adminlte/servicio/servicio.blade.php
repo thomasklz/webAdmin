@@ -36,8 +36,8 @@
                   <input type="text" name="enlace" class="form-control" placeholder="Ingresar la url" value="{{ old('enlace') }}">
                 </div>
                 <div class="form-group">
-                  <label>Subir foto: </label>
-                  <input type="file" name="foto" class="form-control">
+                  <label>Icono: </label>
+                   <input type="text" name="icono" class="form-control" placeholder="Ingresar nombre del icono" value="{{ old('icono') }}">
                 </div>
                 <button type="submit" class="btn btn-block btn-success">Registrar</button>
               </form>

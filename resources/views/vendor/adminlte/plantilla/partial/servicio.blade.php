@@ -7,46 +7,18 @@
             <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
+         @foreach($servicios as $servicio)
             <div class="col-md-3">
                 <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                    <a class="box-icon-title" href="#">
-                        <i class="fa fa-tablet"></i>
-                        <h2>Fully Reposnive</h2>
+                    <a class="box-icon-title" href="">
+                        <i class="{{$servicio->foto}}"></i>
+                        <h2>{{$servicio->titulo}}</h2>
                     </a>
-                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                    <a class="box-icon-more font-lato weight-300" href="#">Learn More</a>
+                    <p>{{$servicio->contenido}}</p>
+                    <a class="box-icon-more font-lato weight-300" href="{{$servicio->enlace}}">Leer más</a>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                    <a class="box-icon-title" href="#">
-                        <i class="fa fa-random"></i>
-                        <h2>Clean Design</h2>
-                    </a>
-                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                    <a class="box-icon-more font-lato weight-300" href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                    <a class="box-icon-title" href="#">
-                        <i class="fa fa-tint"></i>
-                        <h2>Reusable Elements</h2>
-                    </a>
-                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                    <a class="box-icon-more font-lato weight-300" href="#">Learn More</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box-icon box-icon-center box-icon-round box-icon-transparent box-icon-large">
-                    <a class="box-icon-title" href="#">
-                        <i class="fa fa-cogs"></i>
-                        <h2>Multipurpose</h2>
-                    </a>
-                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                    <a class="box-icon-more font-lato weight-300" href="#">Learn More</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

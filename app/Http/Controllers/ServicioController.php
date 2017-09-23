@@ -31,22 +31,17 @@ class ServicioController extends Controller
       $this->validate($request, [
     					 'titulo' => 'required',
     					 'contenido' => 'required',
-    					 'foto' => 'required|mimes:jpg,png,jpeg',
+    					 'icono' => 'required',
     					 'enlace' => 'required',
     					]);
 
-      $file = $request->file('foto');
-      $nombre = $file->getClientMimeType();
-      $tipoImagen = str_replace('image/', '.',$nombre);
-      $fileName = uniqid() .$tipoImagen ;
-      $path = public_path() . '/img/servicio';
-      $file->move($path, $fileName);
+  
 
       $date= new \DateTime();
       $servicio = new Servicio;
       $servicio->titulo = $request->titulo;
       $servicio->contenido = $request->contenido;
-      $servicio->foto = $fileName;
+      $servicio->foto = $request->icono;
       $servicio->enlace = $request->enlace;
       $servicio->fecha = $date->format('Y-m-d H:i:s');
       $servicio->estado = 1 ;
@@ -71,22 +66,12 @@ class ServicioController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->ajax()){
-            $file = $request->file('foto');
-            if (empty($file)){
-              $fileName=$request->VMfoto;
-            }else{
-              $nombre = $file->getClientMimeType();
-              $tipoImagen = str_replace('image/', '.',$nombre);
-              $fileName = uniqid() .$tipoImagen ;
-              $path = public_path() . '/img/servicio';
-              $file->move($path, $fileName);
-            }
             $servicio = DB::table('Servicio')
                      ->where('id', $id)
                      ->update([
                           'titulo' => $request->VMtitulo,
                           'contenido' => $request->VMcontenido,
-                          'foto' => $fileName,
+                          'foto' => $request->VMicono,
                           'enlace' => $request->VMenlace,
                          ]);
             $unidad = DB::table('UnidadServicio')
