@@ -78,8 +78,8 @@
                 @foreach($eventos as $evento)
                 <tr>
                   <td class="text-center">{{ $evento->id }}</td>
-                  <td>{{ $evento->titulo }}</td>
                   <td>{{ $evento->unidad }}</td>
+                   <td>{{ $evento->titulo }}</td>
                   <td>{{ $evento->detalle }}</td>
                   <td>{{ $evento->url }}</td>
                   <td class="text-center">{{ $evento->fecha }}</td>

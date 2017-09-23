@@ -7,103 +7,67 @@
             <i class="fa fa-chevron-down"></i>
         </div>
         <div class="row">
-            <h4>&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-option-vertical"></i>  Ordered By Date</h4>
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-option-vertical"></i> Ordenados por fecha</h4>
+            @foreach ($eventos as $evento)
+            <?php $a = 1; ?>
             <div class="col-sm-4">
+                @if($a<=2)
                 <div class="event-item">
                     <div class="event-date-wrapper">
-                        <span class="event-date-day">02</span>
-                        <span class="event-date-month">April</span>
+                        <span class="event-date-day">{{date('d', strtotime($evento->fecha))}}</span>
+                        <span class="event-date-month">
+                        @if(date('m', strtotime($evento->fecha)) == 1)
+                         Ener
+                        @endif
+                        @if(date('m', strtotime($evento->fecha)) == 2)
+                         Febr
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 3)
+                         Marz
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 4)
+                         Abri
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 5)
+                         Mayo
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 6)
+                         Junio
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 7)
+                         Juli
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 8)
+                         Agos
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 9)
+                         Sept
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 10)
+                         Octu
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 11)
+                         Novi
+                        @endif
+                         @if(date('m', strtotime($evento->fecha)) == 12)
+                         Dici
+                        @endif
+                        </span>
                     </div>
                     <div class="event-content-wrapper">
                         <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
+                            <h3 class="event-title"><a href="">{{$evento->titulo}}</a></h3>
+                            <div class="event-location">{{$evento->lugar}} </div>
                         </div>
                         <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
+                            <a href="{{$evento->url}}">Ver</a>
                         </div>
                     </div>
                 </div>
-                <div class="event-item">
-                    <div class="event-date-wrapper">
-                        <span class="event-date-day">03</span>
-                        <span class="event-date-month">April</span>
-                    </div>
-                    <div class="event-content-wrapper">
-                        <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
-                        </div>
-                        <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
-                        </div>
-                    </div>
-                </div>
+                 <?php $a = $a + 1 ; ?>
+                @endif
             </div>
-            <div class="col-sm-4">
-                <div class="event-item">
-                    <div class="event-date-wrapper">
-                        <span class="event-date-day">08</span>
-                        <span class="event-date-month">April</span>
-                    </div>
-                    <div class="event-content-wrapper">
-                        <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
-                        </div>
-                        <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div class="event-date-wrapper">
-                        <span class="event-date-day">09</span>
-                        <span class="event-date-month">April</span>
-                    </div>
-                    <div class="event-content-wrapper">
-                        <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
-                        </div>
-                        <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="event-item">
-                    <div class="event-date-wrapper">
-                        <span class="event-date-day">14</span>
-                        <span class="event-date-month">April</span>
-                    </div>
-                    <div class="event-content-wrapper">
-                        <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
-                        </div>
-                        <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div class="event-date-wrapper">
-                        <span class="event-date-day">15</span>
-                        <span class="event-date-month">April</span>
-                    </div>
-                    <div class="event-content-wrapper">
-                        <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="#">New York</a></h3>
-                            <div class="event-location">Colonial Life Arena w/ Aloe Blacc </div>
-                        </div>
-                        <div class="event-status-wrapper">
-                            <a href="#">Ver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach 
         </div>
     </div>
 </section>
