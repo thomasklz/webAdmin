@@ -63,6 +63,21 @@ class InglesController extends Controller
             ->where('unidadacademica.nombre','=',$micrositio)
             ->orderBy('noticias.fechaPublicacion','asc')
             ->get();
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas'));
+
+        $categoriasproyecto = DB::table('categoriaproyecto')
+            ->select('categoriaproyecto.*')
+            ->where('categoriaproyecto.estado','=',1)
+            ->get(); 
+        
+        $proyectos = DB::table('proyecto')
+            ->join('categoriaproyecto', 'proyecto.idCategoriaproyecto', '=', 'categoriaproyecto.id')
+            ->join('estadoproyecto', 'proyecto.idEstadoproyecto', '=', 'estadoproyecto.id')
+            ->join('unidadproyecto', 'proyecto.id', '=', 'unidadproyecto.idProyecto')
+            ->join('unidadacademica', 'unidadproyecto.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('proyecto.foto','proyecto.fecha', 'proyecto.autor',  'categoriaproyecto.categoria', 'estadoproyecto.nombre as estado')
+            ->where('proyecto.estado','=',1)
+            ->get(); 
+            
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos'));
     }
 }
