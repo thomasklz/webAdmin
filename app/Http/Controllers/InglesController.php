@@ -43,6 +43,14 @@ class InglesController extends Controller
             ->orderBy('eventos.fecha','asc')
             ->get();  
 
+        $personas = DB::table('persona')
+            ->join('personaunidad', 'persona.id', '=', 'personaunidad.idPersona')
+            ->join('unidadacademica', 'personaunidad.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('persona.nombre','persona.apellido','persona.cargo','persona.correo','persona.foto')
+            ->where('persona.estado','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
+            ->get(); 
+
         $noticias = DB::table('noticias')
             ->join('categorias', 'noticias.idCategoria', '=', 'categorias.id')
             ->join('noticiasfotos', 'noticias.id', '=', 'noticiasfotos.idNoticias')
@@ -55,6 +63,6 @@ class InglesController extends Controller
             ->where('unidadacademica.nombre','=',$micrositio)
             ->orderBy('noticias.fechaPublicacion','asc')
             ->get();
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias'));
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas'));
     }
 }
