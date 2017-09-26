@@ -49,7 +49,15 @@ class InglesController extends Controller
             ->select('persona.nombre','persona.apellido','persona.cargo','persona.correo','persona.foto')
             ->where('persona.estado','=',1)
             ->where('unidadacademica.nombre','=',$micrositio)
-            ->get(); 
+            ->get();
+
+        $redesSociales = DB::table('redessociales')
+            ->join('unidadredessociales', 'redessociales.id', '=', 'unidadredessociales.idRedessociales')
+            ->join('unidadacademica', 'unidadredessociales.idUnidadacademica', '=', 'unidadacademica.id')
+            ->select('redessociales.*')
+            ->where('redessociales.estado','=',1)
+            ->where('unidadacademica.nombre','=',$micrositio)
+            ->get();  
 
         $noticias = DB::table('noticias')
             ->join('categorias', 'noticias.idCategoria', '=', 'categorias.id')
@@ -89,6 +97,6 @@ class InglesController extends Controller
             ->where('unidadacademica.nombre','=',$micrositio)
             ->get(); 
 
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos','documentos'));
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos','documentos','redesSociales'));
     }
 }

@@ -55,26 +55,12 @@
                 <!-- /Newsletter Form -->
                 <!-- Social Icons -->
                 <div class="margin-top-20">
-                    <a href="#" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
+                    @foreach($redesSociales as $redSocial)
+                    <a href="{{$redSocial->link}}" class="social-icon social-icon-border social-{{$redSocial->redSocial}} pull-left" data-toggle="tooltip" data-placement="top" title="{{$redSocial->redSocial}}">
+                        <i class="icon-{{$redSocial->redSocial}}"></i>
+                        <i class="icon-{{$redSocial->redSocial}}"></i>
                     </a>
-                    <a href="#" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-                        <i class="icon-gplus"></i>
-                        <i class="icon-gplus"></i>
-                    </a>
-                    <a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-icon social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">
-                        <i class="icon-rss"></i>
-                        <i class="icon-rss"></i>
-                    </a>
+                    @endforeach
                 </div>
                 <!-- /Social Icons -->
             </div>

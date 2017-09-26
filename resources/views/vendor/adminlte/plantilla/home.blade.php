@@ -48,7 +48,7 @@
         @include('adminlte::plantilla.partial.archivo')
         <!-- /ARCHIVOS-->
         <!-- UBICACION -->
-        @include('adminlte::plantilla.partial.ubicacion')
+        <!--  @include('adminlte::plantilla.partial.ubicacion')-->
         <!-- FOOTER -->
           @include('adminlte::plantilla.partial.footerplantilla')
         <!-- /FOOTER -->
