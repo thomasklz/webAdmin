@@ -22,60 +22,40 @@
                         </li>
                         <li class="dropdown">
                             <!-- PAGES -->
-                            <a class="dropdown-toggle" href="#">
+                            <a class="page-scroll" href="#intro">
                                 NOSOTROS
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="page-careers.html">CAREERS</a></li>
-                                <li><a href="page-sitemap.html">SITEMAP</a></li>
-                                <li><a href="page-blank.html">BLANK PAGE</a></li>
-                            </ul>
                         </li>
                         <li class="dropdown">
                             <!-- FEATURES -->
-                            <a class="dropdown-toggle" href="#">
+                            <a class="page-scroll" href="#servicios">
                                 SERVICIOS
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown">
-                                    <li><a target="_blank" href="http://theme.stepofweb.com/Smarty/v1.2.1/Admin/HTML/"><span class="label label-success pull-right">BONUS</span><i class="et-gears"></i> ADMIN PANEL</a>
-                                </li>
-                            </ul>
-                            </li>
-                            <li class="dropdown">
-                                <!-- PORTFOLIO -->
-                                <a class="dropdown-toggle" href="#">
-                                     NOTICIAS
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="page-careers.html">CAREERS</a></li>
-                                    <li><a href="page-sitemap.html">SITEMAP</a></li>
-                                    <li><a href="page-blank.html">BLANK PAGE</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <!-- BLOG -->
-                                <a class="dropdown-toggle" href="#">
-                                    REPOSITORIO
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="page-careers.html">CAREERS</a></li>
-                                    <li><a href="page-sitemap.html">SITEMAP</a></li>
-                                    <li><a href="page-blank.html">BLANK PAGE</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <!-- SHOP -->
-                                <a class="dropdown-toggle" href="#">
-                                    CONTÁCTENOS
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="shop-compare.html">COMPARE</a></li>
-                                    <li><a href="shop-cart.html">CART</a></li>
-                                    <li><a href="shop-checkout.html">CHECKOUT</a></li>
-                                    <li><a href="shop-checkout-final.html">ORDER PLACED</a></li>
-                                </ul>
-                            </li>
+                        </li>
+                        <li class="dropdown">
+                            <!-- FEATURES -->
+                            <a class="page-scroll" href="#filosofia">
+                                FILOSOFÍA
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <!-- PORTFOLIO -->
+                            <a class="page-scroll" href="#noticias">
+                                NOTICIAS
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <!-- BLOG -->
+                            <a class="page-scroll" href="#repositorio">
+                                REPOSITORIO
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <!-- SHOP -->
+                            <a class="page-scroll" href="#proyectos">
+                                PROYECTOS
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
