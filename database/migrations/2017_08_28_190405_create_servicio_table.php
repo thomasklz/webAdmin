@@ -18,7 +18,6 @@ class CreateServicioTable extends Migration
             $table->string('titulo',300);
             $table->longText('contenido');
             $table->string('foto',30);
-            $table->text('enlace');
             $table->date('fecha');
             $table->boolean('estado');
         });

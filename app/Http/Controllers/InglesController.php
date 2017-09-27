@@ -38,6 +38,8 @@ class InglesController extends Controller
             ->select('servicio.*')
             ->where('servicio.estado','=',1)
             ->where('unidadacademica.nombre','=',$micrositio)
+            ->orderBy('servicio.id', 'desc')
+            ->take(4)
             ->get();  
 
         $eventos = DB::table('eventos')

@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             {!! Form::open(['id'=>'uploadimage', 'method'=>'PUT', 'files'=>true]) !!}
@@ -29,17 +29,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2" style="padding-top:7px;">Contenido</label>
-                    <div class="col-md-10" style="padding-top:7px;">
-                        <input type="text" name="VMcontenido" class="form-control">
+                <label class="col-sm-2 control-label" style="padding-top:7px;"><b>Contenido</b></label>
+                <div class="col-sm-10" style="padding-top:7px;">
+                  <div class="box">
+                    <div class="box-body pad">
+                        <textarea class="form-control" name="VMcontenido" id="VMcontenido"
+                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                        </textarea>
                     </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-2" style="padding-top:7px;">Enlace</label>
-                    <div class="col-md-10" style="padding-top:7px;">
-                        <input type="text" name="VMenlace" class="form-control">
-                    </div>
-                </div>
+              </div>
                 <div class="form-group">
                   <label id="select_file"class="col-md-2" style="padding-top:7px;">Icono: </label>
                   <div class="col-md-10" style="padding-top:7px;">

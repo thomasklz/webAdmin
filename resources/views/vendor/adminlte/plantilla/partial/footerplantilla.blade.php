@@ -40,19 +40,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <!-- Newsletter Form -->
-                <h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
-                <p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
-                <form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Subscribe</button>
-                        </span>
-                    </div>
-                </form>
-                <!-- /Newsletter Form -->
+                <h4 class="letter-spacing-1">REDES SOCIALES</h4>
                 <!-- Social Icons -->
                 <div class="margin-top-20">
                     @foreach($redesSociales as $redSocial)

@@ -2,17 +2,15 @@ $(document).ready(function() {
     alertify.logPosition("bottom right");
     //show proyecto
     $('[data-route]').click(function(e) {
-        e.preventDefault();;
+        e.preventDefault();
         var id = $(this).parents("tr").find("td").eq(0).html();
         var unidad = $(this).parents("tr").find("td").eq(1).html();
         var titulo = $(this).parents("tr").find("td").eq(2).html();
-        var conteido = $(this).parents("tr").find("td").eq(3).html();
-        var enlace = $(this).parents("tr").find("td").eq(4).html();
-        var foto = $(this).parents("tr").find("td").eq(5).html();
+        var conteido = $(this).data('contenido');
+        var foto = $(this).parents("tr").find("td").eq(3).html();
         $('input[name=idServicio]').val(id);
         $('input[name=VMtitulo]').val(titulo);
-        $('input[name=VMcontenido]').val(conteido);
-        $('input[name=VMenlace]').val(enlace);
+        $('#VMcontenido').text(conteido);
         $('input[name=VMicono]').val(foto);
         $('#idUnidadAcademica option[ids="' + unidad + '"]').prop("selected", true);
     });

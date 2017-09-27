@@ -14,8 +14,10 @@
                         <i class="{{$servicio->foto}}"></i>
                         <h2>{{$servicio->titulo}}</h2>
                     </a>
-                    <p>{{$servicio->contenido}}</p>
-                    <a class="box-icon-more font-lato weight-300" href="{{$servicio->enlace}}">Leer más</a>
+                    <p>{!! str_limit("$servicio->contenido",100) !!}</p>
+                    @foreach($micrositios as $micrositio)
+                    <a class="box-icon-more font-lato weight-300" href="{{$micrositio->nombre}}/servicios/{{$servicio->id}}"">Leer más</a>
+                    @endforeach
                 </div>
             </div>
             @endforeach

@@ -15,14 +15,13 @@
         @include('adminlte::plantilla.partial.topbar')
         <!-- /TOP BAR -->
         <!-- HEADER MENU -->
-        @include('adminlte::plantilla.partial.headermenu1')
+        @include('adminlte::plantilla.partial.headermenu2')
         <!-- /HEADER MENU -->
-        @foreach($micrositios as $micrositio)
+        @foreach($servicios as $servicio)
         <section class="page-header">
             <div class="container">
                 <div >
-                    <h1>NOSOTROS</h1>
-                    <h4 class="nomargin-bottom weight-300 text-muted size-20">{{$micrositio->frase}}</h4>
+                    <h1>SERVICIOS  <i class="{{$servicio->foto}}"></i> </h1>
                 </div>
             </div>
         </section>
@@ -33,21 +32,31 @@
                     <i class="fa fa-chevron-down"></i>
                 </div>
                 <div class="row text-left" >
-                    <div class="text-left" style="margin: 10px 10px 10px 0px;float: left; width: 50%" >
-                        <div>
-                            <a href="#">
-                                <img class="img-responsive" src='{{asset("img/departamentos/$micrositio->foto")}}' alt="">
-                            </a>
-                        </div>
-                    </div>
                     <div class="text-left">
-                        <h3 class="weight-300" style="text-align:">Información de <span>{{$micrositio->nombre}}</span></h3>
-                        <p style="text-align : justify;">{!! $micrositio->contenido !!}</p>
+                        <h3 class="weight-300" style="text-align:"><b>{{$servicio->titulo}}</b></h3>
+                       <p style="text-align : justify;">{!! $servicio->contenido !!}</p>
                         <hr />
                     </div>
                 </div>
             </div>
         @endforeach
+        <!-- -->
+            <section class="alternate">
+                <div class="container">
+                    <div class="row">
+                        @foreach($serviciosList as $servicioList)
+                        <div class="col-md-4">
+                            <div class="heading-title heading-border-bottom heading-color">
+                                <h3>{{$servicioList->titulo}}</h3>
+                            </div>
+                            <p>{!! str_limit("$servicioList->contenido",150) !!}</p>
+                            <a href="{{$servicioList->id}}"> Leer <span>más</span> </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+            <!-- / -->
         <!-- FOOTER -->
         @include('adminlte::plantilla.partial.footerplantilla')
         <!-- /FOOTER -->

@@ -7,59 +7,61 @@
                 <i class="fa fa-bars"></i>
             </button>
             <!-- Logo -->
+             @foreach($micrositios as $micrositio)
             <span class="logo pull-left">
-                 @foreach($micrositios as $micrositio)
+                
                 <img src='{{asset("img/departamentos/$micrositio->logo")}}' alt="" />
-                @endforeach
+              
             </span>
             <div class="navbar-collapse pull-right nav-main-collapse collapse">
                 <nav class="nav-main">
                     <ul id="topMain" class="nav nav-pills nav-main">
                         <li class="dropdown">
                             <!-- HOME -->
-                            <a class="page-scroll" href="#">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#">
                                  INICIO
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- PAGES -->
-                            <a class="page-scroll" href="#intro">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#intro">
                                 NOSOTROS
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- FEATURES -->
-                            <a class="page-scroll" href="#servicios">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#servicios">
                                 SERVICIOS
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- FEATURES -->
-                            <a class="page-scroll" href="#filosofia">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#filosofia">
                                 FILOSOFÍA
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- PORTFOLIO -->
-                            <a class="page-scroll" href="#noticias">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#noticias">
                                 NOTICIAS
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- BLOG -->
-                            <a class="page-scroll" href="#repositorio">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#repositorio">
                                 REPOSITORIO
                             </a>
                         </li>
                         <li class="dropdown">
                             <!-- SHOP -->
-                            <a class="page-scroll" href="#proyectos">
+                            <a class="page-scroll" href="../../{{$micrositio->nombre}}#proyectos">
                                 PROYECTOS
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
+            @endforeach
         </div>
     </header>
     <!-- /Top Nav -->

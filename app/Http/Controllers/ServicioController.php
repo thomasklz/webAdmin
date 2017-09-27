@@ -31,8 +31,7 @@ class ServicioController extends Controller
       $this->validate($request, [
     					 'titulo' => 'required',
     					 'contenido' => 'required',
-    					 'icono' => 'required',
-    					 'enlace' => 'required',
+    					 'icono' => 'required'
     					]);
 
   
@@ -42,7 +41,6 @@ class ServicioController extends Controller
       $servicio->titulo = $request->titulo;
       $servicio->contenido = $request->contenido;
       $servicio->foto = $request->icono;
-      $servicio->enlace = $request->enlace;
       $servicio->fecha = $date->format('Y-m-d H:i:s');
       $servicio->estado = 1 ;
       $servicio->save();
@@ -71,8 +69,7 @@ class ServicioController extends Controller
                      ->update([
                           'titulo' => $request->VMtitulo,
                           'contenido' => $request->VMcontenido,
-                          'foto' => $request->VMicono,
-                          'enlace' => $request->VMenlace,
+                          'foto' => $request->VMicono
                          ]);
             $unidad = DB::table('UnidadServicio')
                      ->where('idServicio', $id)
