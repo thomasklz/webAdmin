@@ -18,7 +18,7 @@
             </div>
             <div class="col-sm-6">
                 <h3 class="weight-300" style="text-align:">Información de <span>{{$micrositio->nombre}}</span></h3>
-                <p>{{$micrositio->resumen}}</p><a href="#">ver más</a>
+                <p>{{str_limit("$micrositio->resumen",290)}}</p><a href="{{$micrositio->nombre}}/nosotros">ver más</a>
                 <hr />
             </div>
         </div>
