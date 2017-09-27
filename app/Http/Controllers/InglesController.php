@@ -10,6 +10,12 @@ class InglesController extends Controller
 {
     public function index($micrositio)
     {
+        $micrositios = DB::table('unidadacademica')
+            ->select('unidadacademica.*')
+            ->where('estado','=',1)
+            ->where('nombre','=',$micrositio)
+            ->get(); 
+
         $sliders = DB::table('slider')
             ->join('unidadslider', 'slider.id', '=', 'unidadslider.idSlider')
             ->join('unidadacademica', 'unidadslider.idUnidadacademica', '=', 'unidadacademica.id')
@@ -97,6 +103,6 @@ class InglesController extends Controller
             ->where('unidadacademica.nombre','=',$micrositio)
             ->get(); 
 
-        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos','documentos','redesSociales'));
+        return view('adminlte::plantilla.home', compact('sliders', 'filosofias','servicios', 'eventos','noticias','personas','categoriasproyecto', 'proyectos','documentos','redesSociales', 'micrositios'));
     }
 }

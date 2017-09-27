@@ -75,7 +75,7 @@ class UnidadAcademicaController extends Controller
               $nombre = $file->getClientMimeType();
               $tipoImagen = str_replace('image/', '.',$nombre);
               $fileFoto = uniqid() .$tipoImagen ;
-              $path = public_path() . '/img/persona';
+              $path = public_path() . '/img/departamentos';
               $file->move($path, $fileFoto);
             }
             $fileL = $request->file('VMlogo');
@@ -85,7 +85,7 @@ class UnidadAcademicaController extends Controller
               $nombre = $fileL->getClientMimeType();
               $tipoImagen = str_replace('image/', '.',$nombre);
               $fileLogo = uniqid() .$tipoImagen ;
-              $path = public_path() . '/img/persona';
+              $path = public_path() . '/img/departamentos';
               $fileL->move($path, $fileLogo);
             }
             $departamento = DB::table('UnidadAcademica')
