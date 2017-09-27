@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<title>Smarty - Multipurpose + Admin</title>
+<title>ESPAM -MFL</title>
 <meta name="keywords" content="HTML5,CSS3,Template" />
 <meta name="description" content="" />
 <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />

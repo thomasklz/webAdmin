@@ -4,8 +4,6 @@
     {{ trans('adminlte_lang::message.home') }}
 @endsection
 @section('css-top')
-<link rel="stylesheet" href=" {{ asset('css/wizar/form-elements.css') }}" rel="stylesheet" type="text/css" >
-<link rel="stylesheet" href=" {{ asset('css/wizar/style.css') }}" rel="stylesheet" type="text/css" >
 <link rel="stylesheet" href=" {{ asset('css/adminlte/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" >
 @endsection
 @section('main-content')
