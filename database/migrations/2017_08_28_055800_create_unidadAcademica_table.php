@@ -17,6 +17,10 @@ class CreateUnidadAcademicaTable extends Migration
             $table->increments('id');
             $table->string('nombre',150);
             $table->string('logo',50);
+            $table->longText('frase');
+            $table->string('resumen',300);
+            $table->longText('contenido');
+            $table->string('foto',30);
             $table->boolean('estado');
         });
     }

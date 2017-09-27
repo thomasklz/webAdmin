@@ -4,8 +4,18 @@ $(document).ready(function(){
 	$('[data-route]').click(function(e){
         e.preventDefault();;
         var depa = $(this).parents("tr").find("td").eq(1).html();
+        var frase = $(this).parents("tr").find("td").eq(2).html();
+        var logo = $(this).parents("tr").find("td").eq(3).html();
         var id = $(this).parents("tr").find("td").eq(0).html();
-        $('input[name=VMDepartamento]').val(depa);
+        var resumen = $(this).data('resumen');
+        var contenido = $(this).data('contenido');
+        var foto = $(this).data('foto');
+        $('input[name=VMdepartamento]').val(depa);
+        $('input[name=VMfrase]').val(frase);
+        $('input[name=VMresumen]').val(resumen);
+        $('#VMcontenido').text(contenido);
+        $('input[name=VMfotoH]').val(foto);
+        $('input[name=VMlogoH]').val(logo);
 	    $('input[name=VMidDepartamento]').val(id);
 	});
 	//Delete
@@ -26,25 +36,29 @@ $(document).ready(function(){
 		);
 	});
 	//Update departamento
-	$('[data-update]').click(function(e){
-		e.preventDefault();
-		var txtDepartamento = $('input[name=VMDepartamento]').val();
-		var id = $('input[name=VMidDepartamento]').val();
-		var url = 'unidad-academica/'+id ;
-		var token= $('input[name=_token]').val(); 
-		debugger
-	    $.ajax({
-            data: {departamento:txtDepartamento},
-            type: "PUT",
-            dataType: "json",
+	$('[data-update]').click(function(e) {
+        e.preventDefault();
+        var formData = new FormData($('#uploadimage')[0]);
+        var id = $('input[name=VMidDepartamento]').val();
+        var ruta = $('input[name=ruta]').val();
+        var url = ruta + id;
+        debugger
+        var token = $('input[name=_token]').val();
+        $.ajax({
             url: url,
-            headers: {'X-CSRF-TOKEN': token},
-        }).done(function( data, textStatus, jqXHR ){
-			alertify.success(data.mensaje);
-			location.reload();
-		}).fail(function( jqXHR, textStatus) {
-			debugger
-			alertify.error('Error al actualizar');
-	    });
-	});
+            headers: { 'X-CSRF-TOKEN': token },
+            type: "POST",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done(function(data, textStatus, jqXHR) {
+        	debugger
+            alertify.success(data.mensaje);
+            location.reload();
+        }).fail(function(jqXHR, textStatus) {
+        	debugger
+            alertify.error('Error al  actualizar');
+        });
+    });
 });  
