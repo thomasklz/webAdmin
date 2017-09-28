@@ -15,7 +15,7 @@
                         <div class="caption">
                             <h4 class="nomargin">{{$equipo->nombre}} {{$equipo->apellido}}</h4>
                             <small class="margin-bottom-20 block">{{$equipo->cargo}}</small>
-                            <a href="#" class="social-icon social-icon-sm social-facebook">
+                           <!-- <a href="#" class="social-icon social-icon-sm social-facebook">
                                 <i class="fa fa-facebook"></i>
                                 <i class="fa fa-facebook"></i>
                             </a>
@@ -26,7 +26,7 @@
                             <a href="#" class="social-icon social-icon-sm social-linkedin">
                                 <i class="fa fa-linkedin"></i>
                                 <i class="fa fa-linkedin"></i>
-                            </a>
+                            </a>-->
                             <small class="theme-color"> {{$equipo->correo}}</small>
                         </div>
                     </div>

@@ -91,7 +91,7 @@ class InglesController extends Controller
             ->join('estadoproyecto', 'proyecto.idEstadoproyecto', '=', 'estadoproyecto.id')
             ->join('unidadproyecto', 'proyecto.id', '=', 'unidadproyecto.idProyecto')
             ->join('unidadacademica', 'unidadproyecto.idUnidadacademica', '=', 'unidadacademica.id')
-            ->select('proyecto.foto','proyecto.fecha', 'proyecto.autor',  'categoriaproyecto.categoria', 'estadoproyecto.nombre as estado')
+            ->select('proyecto.id','proyecto.foto','proyecto.fecha', 'proyecto.autor',  'categoriaproyecto.categoria', 'estadoproyecto.nombre as estado', 'unidadacademica.nombre as unidad')
             ->where('proyecto.estado','=',1)
             ->where('unidadacademica.nombre','=',$micrositio)
             ->get(); 

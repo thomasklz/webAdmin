@@ -20,7 +20,7 @@
         <section class="page-header">
             <div class="container">
                 <div>
-                    <h1>NOTICIAS</i> </h1>
+                    <h1>PROYECTOS</i> </h1>
                 </div>
             </div>
         </section>
@@ -33,7 +33,7 @@
                         <!-- INLINE SEARCH -->
                         <div class="inline-search clearfix margin-bottom-30">
                             <form action="#" method="get" class="widget_search">
-                                <input type="search" placeholder="Buscar noticia..." id="s" name="s" class="serch-input">
+                                <input type="search" placeholder="Buscar proyecto..." id="s" name="s" class="serch-input">
                                 <button type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -47,9 +47,9 @@
                                 <button class="fa fa-bars"></button>
                                 <h4>CATEGORÍAS</h4>
                             </div>
-                            @foreach($noticiasCategoria as $noticiaCategoria)
+                            @foreach($categoriasProyecto as $categoriaProyecto)
                             <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                                <li class="list-group-item"><a href="#"><span class="size-11 text-muted pull-right">({{$noticiaCategoria->count}})</span> {{$noticiaCategoria->categoria}}</a></li>
+                                <li class="list-group-item"><a href="../proyectos-categoria/{{$categoriaProyecto->categoria}}"><span class="size-11 text-muted pull-right">({{$categoriaProyecto->count}})</span> {{$categoriaProyecto->categoria}}</a></li>
                             </ul>
                             @endforeach
                             <!-- /side navigation -->
@@ -72,17 +72,18 @@
                             <div class="tab-content">
                                 <!-- POPULAR -->
                                 <div id="tab_1" class="tab-pane active">
-                                    @foreach($noticias as $noticia)
+                                    @foreach($proyectos as $proyecto)
                                     <div class="row tab-post">
                                         <!-- post -->
                                         <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <a href="{{$noticia->id}}">
-                                                    <img src='{{asset("img/noticia/$noticia->foto")}}' width="50" alt="" />
+                                            <a href="{{$proyecto->id}}">
+                                                    <img src='{{asset("img/proyectos/$proyecto->foto")}}' width="50" alt="" />
                                                 </a>
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-xs-9">
-                                            <a href="{{$noticia->id}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
-                                            <small>{{$noticia->fechaPublicacion}}</small>
+                                            <a href="{{$proyecto->id}}" class="tab-post-link">{!! str_limit("$proyecto->titulo",35) !!}</a>
+                                            <small>Autor: {{$proyecto->autor}}</small>
+                                            <small>{{$proyecto->fecha}}</small>
                                         </div>
                                     </div>
                                     <!-- /post -->
@@ -103,35 +104,28 @@
                     </div>
                     <!-- RIGHT -->
                     <div class="col-md-9 col-sm-9">
-                        @php($a=0) @foreach($noticiasActual as $noticiaActual) @if($a==0)
-                        <h1 class="blog-post-title">{{$noticiaActual->titulo}}</h1>
-                        <ul class="blog-post-info list-inline">
-                            <li>
-                               <i class="fa fa-clock-o"></i> 
-                                <span class="font-lato">Publicación: {{$noticiaActual->fechaPublicacion}}</span>
-                            </li>
-                            <li>
-                               <i class="fa fa-user"></i> 
-                               <span class="font-lato">Administrador</span>
-                            </li>
-                        </ul>
-                        <div class="nivoSlider" data-controlNav="true" data-pauseOnHover="false" style="width: 830px; height: 350px">
-                            @foreach($noticiasActual as $noticiaActuals)
-                            <img src='{{asset("img/noticia/$noticiaActuals->foto")}}' alt="" /> @endforeach
+                        @foreach($proyectosSelect as $proyectoSelect)
+                       <div class="col-md-4">
+
+                            <div class="box-video text-center">
+
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <a href="../proyectos/{{$proyectoSelect->id}}">
+                                        <img src='{{asset("img/proyectos/$proyectoSelect->foto")}}' width="100%"/>
+                                    </a>
+                                </div>
+
+                                <a class="box-video-title" href="../proyectos/{{$proyectoSelect->id}}">
+                                    <small>AUTOR</small>
+                                    <h4> {{$proyectoSelect->autor}}</h4>
+                                </a>
+                                <p class="font-lato weight-300">{{ $proyectoSelect->titulo }}</p>
+                                <a class="btn btn-default" href="../proyectos/{{$proyectoSelect->id}}">Leer más</a>
+                            </div>
+
                         </div>
-                        <!-- /OWL SLIDER -->
-                        <!-- article content -->
-                        <p class="dropcap" style="text-align : justify;">{!! $noticiaActual->contenido !!}</p>
-                        @php($a=1) @endif
-                        <!-- /article content -->
                         @endforeach
-                        <div class="divider divider-dotted">
-                            <!-- divider -->
-                        </div>
-                        <div class="divider">
-                            <!-- divider -->
-                        </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </section>

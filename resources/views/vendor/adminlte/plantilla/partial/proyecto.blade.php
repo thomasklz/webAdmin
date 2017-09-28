@@ -28,7 +28,7 @@
                                         <span class="fa fa-plus size-20"></span>
                                     </a>
                                     <!-- details -->
-                                    <a class="ico-rounded" href="portfolio-single-slider.html">
+                                    <a class="ico-rounded" href="{{$proyecto->unidad}}/proyectos/{{$proyecto->id}}">
                                         <span class="glyphicon glyphicon-option-horizontal size-20"></span>
                                     </a>
                                 </span>
@@ -36,8 +36,8 @@
                                 <div class="item-box-overlay-title">
                                     <h3>{{$proyecto->autor}}</h3>
                                     <ul class="list-inline categories nomargin">
-                                        <li><a href="#">{{$proyecto->fecha}}</a></li>
-                                        <li><a href="#">{{$proyecto->estado}}</a></li>
+                                        <li><a href="{{$proyecto->unidad}}/proyectos/{{$proyecto->id}}">{{$proyecto->fecha}}</a></li>
+                                        <li><a href="{{$proyecto->unidad}}/proyectos/{{$proyecto->id}}">{{$proyecto->estado}}</a></li>
                                     </ul>
                                 </div>
                                 <!-- /overlay title -->
