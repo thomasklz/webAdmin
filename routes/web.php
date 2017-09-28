@@ -49,3 +49,4 @@ Route::get('micrositio/{micrositio}/servicios/{id}/', 'ServiciosController@index
 Route::get('micrositio/{micrositio}/noticia/{id}/', 'NoticiaPlantillaController@index');
 Route::get('micrositio/{micrositio}/proyectos/{id}/', 'ProyectosPlantillaController@index');
 Route::get('micrositio/{micrositio}/proyectos-categoria/{id}/', 'ProyectosPlantillaController@proyectoCategoria');
+Route::get('micrositio/{micrositio}/noticia-categoria/{id}/', 'NoticiaPlantillaController@noticiaCategoria');

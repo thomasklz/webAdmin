@@ -20,7 +20,7 @@
         <section class="page-header">
             <div class="container">
                 <div>
-                    <h1>NOTICIAS</i> </h1>
+                    <h1>PROYECTOS</i> </h1>
                 </div>
             </div>
         </section>
@@ -71,22 +71,26 @@
                             <!-- tabs content -->
                             <div class="tab-content">
                                 <!-- POPULAR -->
-                                <div id="tab_1" class="tab-pane active">
-                                    @foreach($noticias as $noticia)
-                                    <div class="row tab-post">
-                                        <!-- post -->
-                                        <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <a href="{{$noticia->id}}">
+                                <div class="tab-content">
+                                    <!-- POPULAR -->
+                                    <div id="tab_1" class="tab-pane active">
+                                        @foreach($noticias as $noticia)
+                                        <div class="row tab-post">
+                                            <!-- post -->
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <a href="{{$noticia->id}}">
                                                     <img src='{{asset("img/noticia/$noticia->foto")}}' width="50" alt="" />
                                                 </a>
+                                            </div>
+                                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                                <a href="{{$noticia->id}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
+                                                <small>{{$noticia->fechaPublicacion}}</small>
+                                            </div>
                                         </div>
-                                        <div class="col-md-9 col-sm-9 col-xs-9">
-                                            <a href="{{$noticia->id}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
-                                            <small>{{$noticia->fechaPublicacion}}</small>
-                                        </div>
+                                        <!-- /post -->
+                                        @endforeach
                                     </div>
-                                    <!-- /post -->
-                                    @endforeach
+                                    <!-- /POPULAR -->
                                 </div>
                                 <!-- /POPULAR -->
                             </div>
@@ -103,34 +107,23 @@
                     </div>
                     <!-- RIGHT -->
                     <div class="col-md-9 col-sm-9">
-                        @php($a=0) @foreach($noticiasActual as $noticiaActual) @if($a==0)
-                        <h1 class="blog-post-title">{{$noticiaActual->titulo}}</h1>
-                        <ul class="blog-post-info list-inline">
-                            <li>
-                               <i class="fa fa-clock-o"></i> 
-                                <span class="font-lato">Publicación: {{$noticiaActual->fechaPublicacion}}</span>
-                            </li>
-                            <li>
-                               <i class="fa fa-user"></i> 
-                               <span class="font-lato">Administrador</span>
-                            </li>
-                        </ul>
-                        <div class="nivoSlider" data-controlNav="true" data-pauseOnHover="false" style="width: 830px; height: 350px">
-                            @foreach($noticiasActual as $noticiaActuals)
-                            <img src='{{asset("img/noticia/$noticiaActuals->foto")}}' alt="" /> @endforeach
+                        @foreach($noticiasSelect as $noticiaSelect)
+                        <div class="col-md-4">
+                            <div class="box-video text-center">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <a href="../noticia/{{$noticiaSelect->id}}">
+                                        <img src='{{asset("img/noticia/$noticiaSelect->foto")}}' width="100%"/>
+                                    </a>
+                                </div>
+                                <a class="box-video-title" href="../noticia/{{$noticiaSelect->id}}">
+                                    <small>Publicación</small>
+                                    <h6> {{$noticiaSelect->fechaPublicacion}}</h6>
+                                </a>
+                                <p class="font-lato weight-300">{{ $noticiaSelect->titulo }}</p>
+                                <a class="btn btn-default" href="../noticia/{{$noticiaSelect->id}}">Leer más</a>
+                            </div>
                         </div>
-                        <!-- /OWL SLIDER -->
-                        <!-- article content -->
-                        <p class="dropcap" style="text-align : justify;">{!! $noticiaActual->contenido !!}</p>
-                        @php($a=1) @endif
-                        <!-- /article content -->
                         @endforeach
-                        <div class="divider divider-dotted">
-                            <!-- divider -->
-                        </div>
-                        <div class="divider">
-                            <!-- divider -->
-                        </div>
                     </div>
                 </div>
             </div>
@@ -154,5 +147,4 @@
     <!-- JAVASCRIPT FILES -->
     @section('scripts') @include('adminlte::plantilla.partial.scriptstemplate') @show
 </body>
-
 </html>
