@@ -32,7 +32,8 @@ Route::resource('evento', 'EventosController');
 Route::resource('servicio', 'ServicioController');
 Route::resource('redes-sociales', 'RedesSocialesController');
 Route::resource('unidad-academica', 'UnidadAcademicaController');
-
+//error
+Route::get('not-found','ErrorController@pagenotfound');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

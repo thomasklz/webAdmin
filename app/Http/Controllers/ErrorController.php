@@ -10,4 +10,8 @@ class ErrorController extends Controller
     {
     	return view('adminlte::errors.403');
     }
+    public function pagenotfound()
+    {
+        return view('adminlte::errors.404');
+    }
 }
