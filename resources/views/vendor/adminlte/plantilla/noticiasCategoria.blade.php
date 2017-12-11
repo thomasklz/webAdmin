@@ -78,12 +78,12 @@
                                         <div class="row tab-post">
                                             <!-- post -->
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a href="{{$noticia->id}}">
+                                                <a href="{{$noticia->slug}}">
                                                     <img src='{{asset("img/noticia/$noticia->foto")}}' width="50" alt="" />
                                                 </a>
                                             </div>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <a href="{{$noticia->id}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
+                                                <a href="{{$noticia->slug}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
                                                 <small>{{$noticia->fechaPublicacion}}</small>
                                             </div>
                                         </div>
@@ -111,16 +111,16 @@
                         <div class="col-md-4">
                             <div class="box-video text-center">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <a href="../noticia/{{$noticiaSelect->id}}">
+                                    <a href="../noticia/{{$noticiaSelect->slug}}">
                                         <img src='{{asset("img/noticia/$noticiaSelect->foto")}}' width="100%"/>
                                     </a>
                                 </div>
-                                <a class="box-video-title" href="../noticia/{{$noticiaSelect->id}}">
+                                <a class="box-video-title" href="../noticia/{{$noticiaSelect->slug}}">
                                     <small>Publicación</small>
                                     <h6> {{$noticiaSelect->fechaPublicacion}}</h6>
                                 </a>
                                 <p class="font-lato weight-300">{{ $noticiaSelect->titulo }}</p>
-                                <a class="btn btn-default" href="../noticia/{{$noticiaSelect->id}}">Leer más</a>
+                                <a class="btn btn-default" href="../noticia/{{$noticiaSelect->slug}}">Leer más</a>
                             </div>
                         </div>
                         @endforeach

@@ -72,7 +72,7 @@ class InglesController extends Controller
             ->join('noticiasfotos', 'noticias.id', '=', 'noticiasfotos.idNoticias')
             ->join('unidadnoticia', 'noticias.id', '=', 'unidadnoticia.idNoticias')
             ->join('unidadacademica', 'unidadnoticia.idUnidadacademica', '=', 'unidadacademica.id')
-            ->select('noticias.id','noticias.titulo', 'noticias.resumen','noticias.fechaPublicacion','noticiasfotos.fotos as foto', 'unidadacademica.nombre as unidad')
+            ->select('noticias.id','noticias.slug','noticias.titulo', 'noticias.resumen','noticias.fechaPublicacion','noticiasfotos.fotos as foto', 'unidadacademica.nombre as unidad')
             ->where('noticias.publicar','=',1)
             ->where('noticiasfotos.publicar','=',1)
             ->where('noticiasfotos.principal','=',1)

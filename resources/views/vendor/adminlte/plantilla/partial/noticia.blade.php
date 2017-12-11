@@ -12,7 +12,7 @@
             @foreach($noticias as $noticia)
             <div class="item-box">
                 <figure>
-                    <a class="item-hover" href="{{$noticia->unidad}}/noticia/{{$noticia->id}}">
+                    <a class="item-hover" href="{{$noticia->unidad}}/noticia/{{$noticia->slug}}">
                         <span class="overlay color2"></span>
                         <span class="inner">
                             <span class="block fa fa-plus fsize20"></span>

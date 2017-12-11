@@ -76,12 +76,12 @@
                                     <div class="row tab-post">
                                         <!-- post -->
                                         <div class="col-md-3 col-sm-3 col-xs-3">
-                                            <a href="{{$noticia->id}}">
+                                            <a href="{{$noticia->slug}}">
                                                     <img src='{{asset("img/noticia/$noticia->foto")}}' width="50" alt="" />
                                                 </a>
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-xs-9">
-                                            <a href="{{$noticia->id}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
+                                            <a href="{{$noticia->slug}}" class="tab-post-link">{!! str_limit("$noticia->titulo",35) !!}</a>
                                             <small>{{$noticia->fechaPublicacion}}</small>
                                         </div>
                                     </div>

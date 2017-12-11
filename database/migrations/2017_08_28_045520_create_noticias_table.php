@@ -19,6 +19,7 @@ class CreateNoticiasTable extends Migration
             $table->string('resumen',300);
             $table->longText('contenido');
             $table->boolean('publicar');
+            $table->string('slug',150)->unique();
             $table->dateTime('fechaPublicacion');
             $table->integer('idCategoria')->unsigned();
             $table->index('idCategoria');
