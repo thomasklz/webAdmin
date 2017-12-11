@@ -35,8 +35,11 @@ class CategoriaController extends Controller
         $categoria->categoria = $request->categoria;
 	    $categoria->estado = 1;
 	    $categoria->save();
-	    alertify()->success('Categoria registrada correctamente','ok')->delay(3000)->position('bottom right');
-	    return redirect('categoria');
+        $notification = array(
+          'message' => 'Categoria registrada correctamente', 
+          'alert-type' => 'success'
+        );
+      return redirect('categoria')->with($notification);
     }
     public function destroy(Request $request, $id)
     {

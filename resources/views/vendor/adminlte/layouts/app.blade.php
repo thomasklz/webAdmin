@@ -39,7 +39,7 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-    
+    @include('alertify::alertify')
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
@@ -57,7 +57,30 @@ desired effect
     @include('adminlte::layouts.partials.scripts')
 @show
 <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
-@include('alertify::alertify')
+<script src="{{ asset('/js/toastr.js') }}"></script>
+<script>
+toastr.options = {"progressBar": true, "positionClass": "toast-bottom-right","closeButton": true,};
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
+</script>
 
 </body>
 </html>

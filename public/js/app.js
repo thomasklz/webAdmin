@@ -44101,7 +44101,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-xs-8"
+    staticClass: "col-xs-6"
   }, [_c('div', {
     staticClass: "checkbox icheck"
   }, [_c('label', [_c('input', {
@@ -44140,7 +44140,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" " + _vm._s(_vm.trans('adminlte_lang_message.remember')) + "\n    ")])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-xs-4"
+    staticClass: "col-xs-6"
   }, [_c('button', {
     staticClass: "btn btn-primary btn-block btn-flat",
     attrs: {
@@ -44389,7 +44389,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.trans('adminlte_lang_message.conditions'))
     }
   })])])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-xs-4 col-xs-push-1"
+    staticClass: "col-xs-4"
   }, [_c('button', {
     staticClass: "btn btn-primary btn-block btn-flat",
     attrs: {

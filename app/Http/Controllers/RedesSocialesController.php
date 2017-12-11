@@ -23,6 +23,7 @@ class RedesSocialesController extends Controller
             ->get();           
       $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
       return view('adminlte::redessociales.redesSociales', compact('redesSociales','unidadAcademicas'));
     }
@@ -43,8 +44,11 @@ class RedesSocialesController extends Controller
       $unidadesRedes->idRedessociales = $redesSociales->id;
       $unidadesRedes->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesRedes->save();
-      alertify()->success('Red Social registrada correctamente')->delay(3000)->position('bottom right');
-      return redirect('redes-sociales');
+      $notification = array(
+          'message' => 'Red Social registrada correctamente', 
+          'alert-type' => 'success'
+      );
+      return redirect('redes-sociales')->with($notification);
     }
     public function destroy(Request $request, $id) 
     {

@@ -17,6 +17,7 @@ class PersonaController extends Controller
     {
         $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get(); 
         $personas = DB::table('Persona')
             ->join('personaunidad', 'Persona.id', '=', 'personaunidad.idPersona')
@@ -60,8 +61,11 @@ class PersonaController extends Controller
       $unidadesPersona->idPersona = $persona->id;
       $unidadesPersona->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesPersona->save();
-      alertify()->success('Persona registrada correctamente')->delay(3000)->position('bottom right');
-      return redirect('persona');
+      $notification = array(
+          'message' => 'Persona registrada correctamente', 
+          'alert-type' => 'success'
+        );
+      return redirect('persona')->with($notification);
     }
      public function destroy(Request $request, $id) 
     {

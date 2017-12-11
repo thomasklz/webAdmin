@@ -23,6 +23,7 @@ class ServicioController extends Controller
             ->get();           
       $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
       return view('adminlte::servicio.servicio', compact('servicios','unidadAcademicas'));
     }
@@ -49,8 +50,11 @@ class ServicioController extends Controller
       $unidadesServicio->idServicio = $servicio->id;
       $unidadesServicio->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesServicio->save();
-      alertify()->success('Servicio registrado correctamente')->delay(3000)->position('bottom right');
-      return redirect('servicio');
+      $notification = array(
+          'message' => 'Servicio registrado correctamente', 
+          'alert-type' => 'success'
+      );
+      return redirect('servicio')->with($notification);
     }
     public function destroy(Request $request, $id) 
     {

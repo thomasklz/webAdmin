@@ -30,6 +30,7 @@ class DocumentoController extends Controller
                      ->get();
       $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
       return view('adminlte::documento.documento', compact('categorias', 'unidadAcademicas','documentos'));
     }
@@ -56,8 +57,11 @@ class DocumentoController extends Controller
       $unidadesDocumento->idDocumento = $documento->id;
       $unidadesDocumento->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesDocumento->save();
-      alertify()->success('Documento registrado correctamente')->delay(3000)->position('bottom right');
-      return redirect('documento');
+      $notification = array(
+          'message' => 'Documento registrado correctamente', 
+          'alert-type' => 'success'
+        );
+      return redirect('documento')->with($notification);
     }
     public function destroy(Request $request, $id) 
     {

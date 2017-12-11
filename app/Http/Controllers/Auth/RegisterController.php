@@ -6,7 +6,9 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\DB;
+use App\UnidadAcademica;
+use Response;
 /**
  * Class RegisterController
  * @package %%NAMESPACE%%\Http\Controllers\Auth
@@ -33,7 +35,15 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('adminlte::auth.register');
+        if (auth()->user()->idtipousers == 1){
+        $unidadAcademicas = DB::table('UnidadAcademica')
+                     ->where('estado','=',1)
+                     ->get();   
+        return view('adminlte::auth.register', compact('unidadAcademicas'));
+        }else
+        {
+         return redirect('error');
+        }
     }
 
     /**
@@ -50,7 +60,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -63,10 +73,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name'     => 'required|max:255',
+            'tipousers'=> 'required',
             'username' => 'sometimes|required|max:255|unique:users',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'terms'    => 'required',
         ]);
     }
 
@@ -79,6 +89,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $fields = [
+            'idtipousers'     => $data['tipousers'],
+            'idUnidadacademica'    => $data['unidad'],
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
@@ -86,6 +98,9 @@ class RegisterController extends Controller
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {
             $fields['username'] = $data['username'];
         }
+
         return User::create($fields);
     }
+
+
 }

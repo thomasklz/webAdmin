@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::resource('noticia', 'NoticiaController');
 Route::get('noticia/fotos/{id}', 'NoticiaController@ShowPhoto');
+Route::get('error', 'ErrorController@index');
 Route::put('noticia/fotos/{id}', 'NoticiaController@UpdatePhoto');
 Route::resource('slider', 'SliderController');
 Route::resource('persona', 'PersonaController');

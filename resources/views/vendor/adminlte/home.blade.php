@@ -6,7 +6,7 @@
 
 
 @section('main-content')
-	<div class="container-fluid spark-screen">
-		<h1>Buscar noticias:</h1>
+	<div class="container-fluid spark-screen center" style="padding-top: 50px;padding-bottom: 50px; text-align: center; color: #fff;background-color: #585858">
+		<h1>Bienvenidos al panel de administración</h1>
 	</div>
 @endsection

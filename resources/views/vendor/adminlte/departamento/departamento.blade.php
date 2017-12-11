@@ -8,7 +8,8 @@
 @endsection
 @section('main-content')
     <div class="container-fluid spark-screen">
-        <div class="box box-warning">
+          @if ( Auth::user()->idtipousers == 1 ) 
+          <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">Registrar el departamento</h3>
             </div>
@@ -66,6 +67,7 @@
               </form>
             </div>
           </div>
+           @endif
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Listado de los departamentos</h3>
@@ -85,6 +87,7 @@
                 <tbody>
                 @foreach($departamentos as $departamento)
                 <tr>
+                  
                   <td class="text-center">{{ $departamento->id }}</td>
                   <td>{{ $departamento->nombre }}</td>
                   <td>{{ $departamento->frase }}</td>

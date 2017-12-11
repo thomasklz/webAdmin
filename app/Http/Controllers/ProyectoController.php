@@ -36,6 +36,7 @@ class ProyectoController extends Controller
                      ->get();
       $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
       return view('adminlte::proyecto.proyecto', compact('estados','categorias', 'unidadAcademicas','proyectos'));
     }
@@ -72,8 +73,12 @@ class ProyectoController extends Controller
       $unidadesProyecto->idProyecto = $proyecto->id;
       $unidadesProyecto->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesProyecto->save();
-      alertify()->success('Proyecto registrado correctamente')->delay(3000)->position('bottom right');
-      return redirect('proyecto');
+      $notification = array(
+          'message' => 'Proyecto registrado correctamente', 
+          'alert-type' => 'success'
+        );
+      return redirect('proyecto')->with($notification);
+
     }
     public function destroy(Request $request, $id) 
     {

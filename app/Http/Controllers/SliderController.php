@@ -22,6 +22,7 @@ class SliderController extends Controller
             ->get();           
       $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
       return view('adminlte::slider.slider', compact('sliders','unidadAcademicas'));
     }
@@ -51,8 +52,11 @@ class SliderController extends Controller
       $unidadesSlider->idSlider = $slider->id;
       $unidadesSlider->idUnidadacademica = $request->idUnidadAcademica;
       $unidadesSlider->save();
-      alertify()->success('Slider registrado correctamente')->delay(3000)->position('bottom right');
-      return redirect('slider');
+      $notification = array(
+          'message' => 'Slider registrado correctamente', 
+          'alert-type' => 'success'
+      );
+      return redirect('slider')->with($notification);
     }
     public function destroy(Request $request, $id) 
     {

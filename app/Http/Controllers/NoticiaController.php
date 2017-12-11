@@ -27,6 +27,7 @@ class NoticiaController extends Controller
                      ->get();
         $unidadAcademicas = DB::table('UnidadAcademica')
                      ->where('estado','=',1)
+                     ->where('id','=',auth()->user()->idUnidadacademica)
                      ->get();            
        return view('adminlte::noticia.registrar', compact('unidadAcademicas','categorias'));
     }
@@ -68,11 +69,17 @@ class NoticiaController extends Controller
             $unidadesNoticia->idNoticias = $noticia->id;
             $unidadesNoticia->idUnidadacademica = $request->idUnidadAcademica;
             $unidadesNoticia->save();
-            alertify()->success('Noticia registrada correctamente')->delay(3000)->position('bottom right');
-        }else{
-            alertify()->error('No se pudo registrar la noticia')->delay(3000)->position('bottom right');
+            $notification = array(
+              'message' => 'Noticia registrada correctamente', 
+              'alert-type' => 'success'
+                );
+            }else{
+               $notification = array(
+                  'message' => 'No se pudo registrar la noticia', 
+                  'alert-type' => 'success'
+            );
         }
-        return redirect('noticia');
+        return redirect('noticia')->with($notification);
     }
     public function create()
     {            

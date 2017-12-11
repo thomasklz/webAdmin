@@ -26,8 +26,11 @@ class EstadoProyectoController extends Controller
         $estado->nombre = $request->estado;
 	    $estado->estado = 1;
 	    $estado->save();
-	    alertify()->success('Estado registrado correctamente')->delay(3000)->position('bottom right');
-	    return redirect('estado-proyecto');
+         $notification = array(
+          'message' => 'Estado registrado correctamente', 
+          'alert-type' => 'success'
+        );
+      return redirect('estado-proyecto')->with($notification);
     }
     public function destroy(Request $request, $id)
     {

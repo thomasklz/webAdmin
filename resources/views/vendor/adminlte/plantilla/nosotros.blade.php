@@ -42,7 +42,7 @@
                     </div>
                     <div class="text-left">
                         <h3 class="weight-300" style="text-align:">Información de <span>{{$micrositio->nombre}}</span></h3>
-                        <p style="text-align : justify;">{!! $micrositio->contenido !!}</p>
+                        <p style="text-align : justify;">{!! str_limit("$micrositio->contenido",1000) !!}</p>
                         <hr />
                     </div>
                 </div>

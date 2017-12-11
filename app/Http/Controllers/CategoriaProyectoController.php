@@ -26,8 +26,11 @@ class CategoriaProyectoController extends Controller
         $categoria->categoria = $request->categoria;
 	    $categoria->estado = 1;
 	    $categoria->save();
-	    alertify()->success('Categoria registrada correctamente')->delay(3000)->position('bottom right');
-	    return redirect('categoria-proyecto');
+        $notification = array(
+          'message' => 'Categoria registrada correctamente', 
+          'alert-type' => 'success'
+        );
+        return redirect('categoria-proyecto')->with($notification);
     }
     public function destroy(Request $request, $id)
     {
