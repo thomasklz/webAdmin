@@ -56,7 +56,7 @@
                     </div>
                     <div class="event-content-wrapper">
                         <div class="event-content-inner-wrapper">
-                            <h3 class="event-title"><a href="">{{$evento->titulo}}</a></h3>
+                            <h3 class="event-title"><a href="" style="color: #2E64FE">{{$evento->titulo}}</a></h3>
                             <div class="event-location">{{$evento->lugar}} </div>
                         </div>
                         <div class="event-status-wrapper">

@@ -30,16 +30,6 @@
                 <div class="row">
                     <!-- LEFT -->
                     <div class="col-md-3 col-sm-3">
-                        <!-- INLINE SEARCH -->
-                        <div class="inline-search clearfix margin-bottom-30">
-                            <form action="#" method="get" class="widget_search">
-                                <input type="search" placeholder="Buscar noticia..." id="s" name="s" class="serch-input">
-                                <button type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </form>
-                        </div>
-                        <!-- /INLINE SEARCH -->
                         <hr />
                         <!-- side navigation -->
                         <div class="side-nav">
