@@ -20,6 +20,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-2 control-label" style="padding-top:7px;">Color plantilla</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <select name="VMcolor"  id="VMcolor" class="form-control">
+                            <option value="blue">blue</option>
+                            <option value="brown">brown</option>
+                            <option value="darkblue">darkblue</option>
+                            <option value="darkgreen">darkgreen</option>
+                            <option value="green">green</option>
+                            <option value="lightgrey">lightgrey</option>
+                            <option value="orange">orange</option>
+                            <option value="pink">pink</option>
+                            <option value="red">red</option>
+                            <option value="yellow">yellow</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-2 control-label" style="padding-top:7px;">Frase</label>
                     <div class="col-md-10" style="padding-top:7px;">
                         <input type="text" name="VMfrase" class="form-control">

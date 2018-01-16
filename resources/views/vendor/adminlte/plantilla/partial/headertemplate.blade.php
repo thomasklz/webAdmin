@@ -17,4 +17,6 @@
 <link href="{{asset('assets/plugins/slider.nivo/nivo-slider.css')}}" rel="stylesheet" type="text/css" />
 <!-- PAGE LEVEL SCRIPTS -->
 <link href="{{asset('assets/css/header-1.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('assets/css/color_scheme/brown.css')}}" rel="stylesheet" type="text/css" id="color_scheme" />
+@foreach($micrositios as $departamento)
+<link href="{{asset('assets/css/color_scheme/'.$departamento->colorplantilla.'.css')}}" rel="stylesheet" type="text/css" id="color_scheme" />
+@endforeach

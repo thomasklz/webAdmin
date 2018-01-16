@@ -62,12 +62,13 @@ class UnidadAcademicaController extends Controller
         $departamento->resumen = $request->resumen;
         $departamento->contenido = $request->contenido;
         $departamento->foto = $fileFoto;
-	    $departamento->estado = 1;
-	    $departamento->save();
-       $notification = array(
+        $departamento->colorplantilla = $request->color;
+	      $departamento->estado = 1;
+	      $departamento->save();
+        $notification = array(
           'message' => 'Departamento registrado correctamente', 
           'alert-type' => 'success'
-      );
+        );
       return redirect('unidad-academica')->with($notification);
     }
     public function destroy(Request $request, $id)
@@ -110,7 +111,8 @@ class UnidadAcademicaController extends Controller
                                 'resumen' => $request->VMresumen,
                                 'contenido' => $request->VMcontenido,
                                 'logo' => $fileLogo,
-                                'foto' => $fileFoto
+                                'foto' => $fileFoto,
+                                'colorplantilla' => $request->VMcolor
                      		 ]);   
             return response()->json(['mensaje'=> 'Departamento actualizada']);
         }

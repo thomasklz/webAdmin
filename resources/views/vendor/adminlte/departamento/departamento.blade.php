@@ -26,6 +26,23 @@
                   </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-2 control-label" style="padding-top:7px;">Color plantilla</label>
+                    <div class="col-md-10" style="padding-top:7px;">
+                        <select name="color" id="color" class="form-control">
+                            <option value="blue">blue</option>
+                            <option value="brown">brown</option>
+                            <option value="darkblue">darkblue</option>
+                            <option value="darkgreen">darkgreen</option>
+                            <option value="green">green</option>
+                            <option value="lightgrey">lightgrey</option>
+                            <option value="orange">orange</option>
+                            <option value="pink">pink</option>
+                            <option value="red">red</option>
+                            <option value="yellow">yellow</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                   <label class="col-md-2 control-label" style="padding-top:7px;">Frase</label>
                   <div class="col-md-10" style="padding-top:7px;">
                     <input type="text" name="frase" class="form-control" placeholder="Ingresar la frase" value="{{ old('frase') }}">
@@ -80,7 +97,8 @@
                   <th class="text-center">#Departamento</th>
                   <th>Departamento</th>
                   <th>Frase</th>
-                  <th>Logo</th>
+                  <th class="text-center">Logo</th>
+                  <th class="text-center">Color Plantilla</th>
                   <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
@@ -91,7 +109,8 @@
                   <td class="text-center">{{ $departamento->id }}</td>
                   <td>{{ $departamento->nombre }}</td>
                   <td>{{ $departamento->frase }}</td>
-                  <td>{{ $departamento->logo }}</td>
+                  <td class="text-center">{{ $departamento->logo }}</td>
+                  <td class="text-center">{{ $departamento->colorplantilla }}</td>
                   <td class="text-center">
                     <div class="row">
                       <div class="col-md-6 text-right ">

@@ -6,6 +6,7 @@ $(document).ready(function(){
         var depa = $(this).parents("tr").find("td").eq(1).html();
         var frase = $(this).parents("tr").find("td").eq(2).html();
         var logo = $(this).parents("tr").find("td").eq(3).html();
+        var color = $(this).parents("tr").find("td").eq(4).html();
         var id = $(this).parents("tr").find("td").eq(0).html();
         var resumen = $(this).data('resumen');
         var contenido = $(this).data('contenido');
@@ -17,6 +18,7 @@ $(document).ready(function(){
         $('input[name=VMfotoH]').val(foto);
         $('input[name=VMlogoH]').val(logo);
 	    $('input[name=VMidDepartamento]').val(id);
+        $('#VMcolor option[value="' + color + '"]').prop("selected", true);
 	});
 	//Delete
 	$('.bnt-delete').click(function(e){
@@ -53,11 +55,9 @@ $(document).ready(function(){
             processData: false,
             data: formData,
         }).done(function(data, textStatus, jqXHR) {
-        	debugger
             alertify.success(data.mensaje);
             location.reload();
         }).fail(function(jqXHR, textStatus) {
-        	debugger
             alertify.error('Error al  actualizar');
         });
     });
